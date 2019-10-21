@@ -75,7 +75,22 @@ const createSession = (req, res) => {
   });
 };
 
+const verifyAuth = (req, res) => {
+  if (!req.session.currentUser) {
+    return res.status(401).json({
+      status: 401,
+      error: [{ message: 'Unauthorized. Please login and try again.' }],
+    });
+  }
+
+  res.status(200).json({
+    status: 200,
+    user: req.session.currentUser,
+  });
+};
+
 module.exports = {
   createUser,
   createSession,
+  verifyAuth,
 }
