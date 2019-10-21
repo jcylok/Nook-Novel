@@ -29,7 +29,7 @@ const index = (req, res) => {
 };
 
 const find = (req, res) => {
-  db.Book.findOneByID(req.params.id, (err, foundBook) => {
+  db.Book.findById(req.params.id, (err, foundBook) => {
     if (err) return console.log(err);
 
     res.json({
@@ -60,9 +60,8 @@ const update = (req, res) => {
 };
 
 // Destroys One Book by ID
-
 const destroy = (req, res) => {
-  db.Book.findByIDAndDelete(req.params.id, (err, deletedBook) => {
+  db.Book.findByIdAndDelete(req.params.id, (err, deletedBook) => {
     if (err) return console.log(err);
 
     res.json({
@@ -77,7 +76,7 @@ const destroy = (req, res) => {
 module.exports = {
   create,
   index,
-  show,
+  find,
   update,
   destroy,
 };

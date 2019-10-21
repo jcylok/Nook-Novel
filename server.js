@@ -16,5 +16,11 @@ const PORT = process.env.PORT || 4000;
 
 // ---------- ROUTES ---------- //
 
+// User Routes
+app.use('/api/v1/users', routes.users);
+
+// Trainer Routes
+app.use('/api/v1/books', routes.books);
+
 // ---------- START SERVER ---------- //
 app.listen(PORT, () => console.log(`SERVER IS A LIVE... @ http://localhost:${PORT}`));
