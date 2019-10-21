@@ -8,7 +8,7 @@ const ctlr = require('../controllers');
 router.post('/signup', ctlr.auth.createUser);
 router.post('/login', ctlr.auth.createSession);
 // router.delete('/logout', ctlr.auth.deleteSession);
-// router.get('/verify', ctlr.auth.verifyAuth);
+router.get('/verify', ctlr.auth.verifyAuth);
 
 
 // ----------------------------- PROFILE -------------------------- //
