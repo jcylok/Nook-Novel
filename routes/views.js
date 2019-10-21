@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ctrl = require('../controllers');
+const ctlr = require('../controllers');
 
 // ------------------------------- AUTH ---------------------------- //
 
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 // GET Signup
 router.get('/signup', (req, res) => {
   res.sendFile('views/auth/signup.html', {
-    root: `${__dirname}/../`
+    root: __dirname,
   });
 });
 
@@ -30,15 +30,15 @@ router.get('/login', (req, res) => {
 // ------------------------------- Profile ---------------------------- //
 
 // GET User Profile
-router.get('/profile/:userId', (req, res) => {
-  if (!req.session.currentUser) {
-    return res.redirect('/login');
-  }
+// router.get('/profile/:userId', (req, res) => {
+//   if (!req.session.currentUser) {
+//     return res.redirect('/login');
+//   }
 
-  res.sendFile('views/profile/show.html', {
-    root: `${__dirname}/../`
-  });
-});
+//   res.sendFile('views/profile/show.html', {
+//     root: `${__dirname}/../`
+//   });
+// });
 
 
 // ------------------------------- Book list ---------------------------- //
