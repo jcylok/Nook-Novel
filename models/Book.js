@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const bookSchema = new Schema({
   ISBN10: String,
   ISBN13: String,
-  genre: [String],
+  googleKey: String,
+  genres: [String],
   recommendedBy: [String],
 });
 

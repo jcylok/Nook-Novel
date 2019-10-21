@@ -28,14 +28,14 @@ const index = (req, res) => {
   });
 };
 
-// Finds One User by Name
+// Finds One User by ID
 const find = (req, res) => {
-  db.User.findOne({ name: req.params.name }, (err, foundUser) => {
+  db.User.findById(req.params.id, (err, foundUser) => {
     if (err) return console.log(err);
 
     res.json({
       status: 200,
-      count: foundUser.length,
+      count: 1,
       data: foundUser,
       dateRequested: new Date().toLocaleString(),
     });
