@@ -10,6 +10,10 @@ const onSuccess = (res) => {
       <div class="book-info">
         <div class="book-title">${book.volumeInfo.title}</div>
         <div class="book-author">${book.volumeInfo.authors}</div>
+      <div class="icons">
+        <a href="#" class ="icon fas fa-bookmark"></a>
+        <a href="#" class ="icon fas fa-star"></a>
+        <a href="#" class ="icon fas fa-check-square"></a>
       </div>
     </div>
     `;
