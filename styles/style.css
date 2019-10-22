@@ -45,6 +45,7 @@
 .dropdown-menu {
    padding: 30px;
    min-width: 250px;
+   height: 250px;
    right: 8vw;
    left: auto;
    margin:0;
@@ -56,16 +57,25 @@
 
 @media screen and (max-width:800px) {
    .dropdown-menu { 
-       display:block !important;
+       display: inline-block !important;
        padding: 15px;
        min-width: 250px;
-       right: 8vw;
-       left: auto;
+       position: relative;
+       left: 70%;
    }
 }
 
 .form-group > p {
    text-align: center;
+   text-transform: none;
+}
+
+#signin {
+   width: 100px;
+   margin: 0;
+   display: inline-block;
+   position: relative;
+   left: 25%;
 }
 
 
@@ -157,7 +167,7 @@ img::-moz-selection{
 .btn-primary:active,.btn-primary:focus,.btn-primary:hover{
     background-color:#fec810!important;
    border-color:#fec810!important;
-   color:#fff
+   color:#fff;
 }
 
 .btn-primary:active,.btn-primary:focus{
@@ -169,7 +179,7 @@ img::-moz-selection{
    }
 
 #mainNav .navbar-toggler{
-    font-size:12px;
+   font-size:12px;
    right:0;
    padding:13px;
    text-transform:uppercase;
@@ -240,7 +250,8 @@ header.masthead{
    background-repeat:no-repeat;
    background-attachment:scroll;
    background-position:center center;
-   background-size:cover
+   background-size:cover;
+   /* opacity: 1.5; */
 }
 
 header.masthead .intro-text{
@@ -671,7 +682,7 @@ section#signup{
     background-color:#212529;
    background-image:url(../images/map-image.png);
    background-repeat:no-repeat;
-   background-position:center
+   background-position:center;
 }
 
 section#signup .section-heading{
@@ -679,7 +690,8 @@ section#signup .section-heading{
 }
 
 section#signup .form-group{
-    margin-bottom:25px
+    margin-bottom:25px;
+    min-width: 10px;
 }
 
 section#signup .form-group input,section#signup .form-group textarea{
