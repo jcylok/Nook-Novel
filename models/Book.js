@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
+  googleKey: String,
   ISBN10: String,
   ISBN13: String,
-  googleKey: String,
   genres: [String],
   recommendedBy: [String],
 });
