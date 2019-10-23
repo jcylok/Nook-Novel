@@ -1,5 +1,5 @@
 const $search = $('form').val();
-const db = require('../../models');
+// const db = require('../../models');
 
 const modal = document.getElementById("myModal");
 // Get the <span> element that closes the modal
@@ -105,22 +105,14 @@ const grabBookInfo = (event) => {
 
 const addBookToDatabase = (event) => {
   const bookLink = event.target.parentNode.parentNode.parentNode.id;
-  db.Book.findOne( { googleKey: bookLink }, (err, foundBook) => {
-    if (err) return console.log(err);
-
-    if (foundBook) return console.log('Book already in database!');
-
-    else {  
-      $.ajax({
-        method: 'POST',
-        url: 'http://localhost:4000/api/v1/books/',
-        data: {
-          googleKey: bookLink,
-        },
-        success: buttonSuccess,
-        error: onError,
-      });
-    };
+  $.ajax({
+    method: 'POST',
+    url: 'http://localhost:4000/api/v1/books/',
+    data: {
+      googleKey: bookLink,
+    },
+    success: buttonSuccess,
+    error: onError,
   });
 };
 
@@ -139,6 +131,16 @@ const wantToRead = (event) => {
 
 
 $('.book-gallery').on('click', '.fa-bookmark', function
+(event) {
+  addBookToDatabase(event);
+});
+
+$('.book-gallery').on('click', '.fa-star', function
+(event) {
+  addBookToDatabase(event);
+});
+
+$('.book-gallery').on('click', '.fa-check-square', function
 (event) {
   addBookToDatabase(event);
 });
