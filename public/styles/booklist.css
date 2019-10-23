@@ -2,10 +2,15 @@
 box-sizing: border-box;
 }
 
+.body {
+  background-color: white;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 
 /* ----- SEARCH BAR ---- */
@@ -32,8 +37,8 @@ box-sizing: border-box;
   width: 325px;
   height: 175px;
   display: flex;
-  background-color: white;
-  border: 10px solid white;
+  background-color: #A08670;
+  border: 10px solid #A08670;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -45,18 +50,74 @@ img.book-img {
   box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
   transition: 0.2s;
   transform: translate(0, -32px);
-  animation: zoom-in;
+  animation: zoom-in 0.5s;
+}
+
+img.book-img:hover {
+  transform: scale(1.075);
+}
+
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  width: 155px;
+  height: 155px;
 }
 
 .book-title {
   font-size: 18px;
   font-weight: 700;
   margin-left: 15px;
+  max-height: 75px;
+  overflow: scroll;
 }
 
 .book-author {
   font-size: 12px;
+  margin-top: 5px;
   margin-left: 15px;
+}
+
+/* -------------- ICONS --------------- */
+.icons {
+  margin-top: auto;
+  align-self: flex-end;
+  text-decoration: none;
+  margin: 0, 50px;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.4s;
+  font-size: 20px;
+}
+
+.icon:nth-child(2) {
+  transform: translate(-2.5px, -1px);
+}
+
+.icon:hover {
+  text-decoration: none;
+}
+
+.icon:nth-child(1):hover {
+  color: #3498DB;
+}
+
+.icon:nth-child(2):hover {
+  color: gold;
+}
+
+.icon:nth-child(3):hover {
+  color: green;
 }
 
 
@@ -64,7 +125,7 @@ img.book-img {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
+  display: block;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -79,16 +140,18 @@ img.book-img {
 /* Modal Content/Box */
 .modal-content {
   background-color: #D3EEF2;
-  margin: 40% auto; /* 15% from the top and centered */
+  margin: 10% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  height: 33vh;
+  width: 66%; /* Could be more or less, depending on screen size */
+  height: 66vh;
+  display: flex;
+  flex-direction: row;
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
+  color: #888;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -102,12 +165,7 @@ img.book-img {
   cursor: pointer;
 }
 
-#allset {
-  font-size: 34px;
-  text-align: center;
-}
-
-#all-set-description {
-  font-size: 12px;
-  text-align: center;
+.modal-book-img {
+  width: 40%;
+  height: auto;
 }

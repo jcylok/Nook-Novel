@@ -1,17 +1,30 @@
 const db = require('../models');
 
 // Creates One Book
+// check if db contains id link
 const create = (req, res) => {
-  db.Book.create(req.body, (err, createdBook) => {
-    if (err) return console.log(err);
-
-    res.json({
-      status: 201,
-      count: createdBook.length,
-      data: createdBook,
-      dateRequested: new Date().toLocaleString(),
+  db.Book.findOne({ googleKey: req.body.googleKey }, (err, foundBook) => {
+    if (err) return res.status(500)({
+      status: 500,
+      error: [{ message: 'Something went wrong, try again!' }]
     });
-  });
+
+    if (foundBook) return res.status(400).json({
+      status: 400,
+      error: [{ message: 'Invalid request. Please try again.' }]
+    });
+
+    db.Book.create(req.body, (err, createdBook) => {
+      if (err) return console.log(err);
+
+      res.json({
+        status: 201,
+        count: createdBook.length,
+        data: createdBook,
+        dateRequested: new Date().toLocaleString(),
+      });
+    });
+  })
 };
 
 // Shows All Books
