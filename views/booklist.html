@@ -8,30 +8,32 @@
 		<!-- Bootstrap CDN -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../styles/booklist.css">
-		<link rel="stylesheet" href="../styles/style.css">
+		<!-- Custom CSS -->
+		<!-- <link rel="stylesheet" href="styles/style.css"> -->
+    <link rel="stylesheet" href="styles/booklist.css">
 
     <!-- JS -->
-		<script src="http://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+		<script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous" defer></script>
 		<script src="../scripts/booklist.js" defer></script>
 		<script src="https://kit.fontawesome.com/4634847c36.js" defer></script>
 
 		<title>BOOK LIST</title>
-
 	</head>
+	
 	<body>
     <h1 class="text-center">BOOKZ</h1>
 	  <div class="container">
 			<div class="row">
 				<div class="search-bar">
 					<form class="form-inline">
-						<input type="text" class="form-control book-input" name="q" value="" placeholder="search books">
-						<input type="submit" value="Go!" class="btn btn-primary">
+						<input type="text" class="form-control book-input" name="q" value="" placeholder="Search Books">
+						<input type="submit" value="GO!" class="btn btn-primary">
 					</form>
 				</div>
-					<div class="book-gallery"></div>
-<!-- 					<button class="load">Load More</button> -->
+				<div class="book-gallery"></div>
 			</div>
 		</div>
   </body>

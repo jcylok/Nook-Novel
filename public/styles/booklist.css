@@ -2,10 +2,15 @@
 box-sizing: border-box;
 }
 
+.body {
+  background-color: white;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 
 /* ----- SEARCH BAR ---- */
@@ -32,8 +37,8 @@ box-sizing: border-box;
   width: 325px;
   height: 175px;
   display: flex;
-  background-color: white;
-  border: 10px solid white;
+  background-color: #A08670;
+  border: 10px solid #A08670;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -120,7 +125,7 @@ img.book-img:hover {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
+  display: block;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -135,16 +140,18 @@ img.book-img:hover {
 /* Modal Content/Box */
 .modal-content {
   background-color: #D3EEF2;
-  margin: 40% auto; /* 15% from the top and centered */
+  margin: 10% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  height: 33vh;
+  width: 66%; /* Could be more or less, depending on screen size */
+  height: 66vh;
+  display: flex;
+  flex-direction: row;
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
+  color: #888;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -158,12 +165,7 @@ img.book-img:hover {
   cursor: pointer;
 }
 
-#allset {
-  font-size: 34px;
-  text-align: center;
-}
-
-#all-set-description {
-  font-size: 12px;
-  text-align: center;
+.modal-book-img {
+  width: 40%;
+  height: auto;
 }
