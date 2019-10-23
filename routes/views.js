@@ -30,15 +30,15 @@ router.get('/login', (req, res) => {
 // ------------------------------- Profile ---------------------------- //
 
 // GET User Profile
-// router.get('/profile/:userId', (req, res) => {
-//   if (!req.session.currentUser) {
-//     return res.redirect('/login');
-//   }
+router.get('/profile/:userId', (req, res) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/');
+  }
 
-//   res.sendFile('views/profile/show.html', {
-//     root: `${__dirname}/../`
-//   });
-// });
+  res.sendFile('views/profile/show.html', {
+    root: `${__dirname}/../`
+  });
+});
 
 
 // ------------------------------- Book list ---------------------------- //
