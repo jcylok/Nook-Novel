@@ -7,9 +7,9 @@ const handleSuccess = (user) => {
 
 
   document.querySelector('.wrapper').insertAdjacentHTML('beforeend', `
-     <section>
+     <section class="welcome">
         <div>
-            <h4><strong>Welcome back ,${user.firstName}!</strong> </h4>
+            <h4><strong>${user.firstName}, welcome back!</strong> </h4>
             <p><strong>Email</strong>: ${user.email}</p>
             <p><strong>Like Genres</strong>: ${user.likedGenres}</p>
         </div>
@@ -42,6 +42,21 @@ const getProfile = () => {
 
 
   function moveToSelected(element) {
+
+    $('#carousel div').click(function() {
+      moveToSelected($(this));
+    });
+    
+    $('#prev').click(function() {
+      moveToSelected('prev');
+    });
+    
+    $('#next').click(function() {
+      moveToSelected('next');
+    });
+
+
+
 
     if (element == "next") {
       var selected = $(".selected").next();
@@ -85,17 +100,7 @@ const getProfile = () => {
       e.preventDefault();
   });
   
-  $('#carousel div').click(function() {
-    moveToSelected($(this));
-  });
-  
-  $('#prev').click(function() {
-    moveToSelected('prev');
-  });
-  
-  $('#next').click(function() {
-    moveToSelected('next');
-  });
+
   
 
 
