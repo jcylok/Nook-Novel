@@ -102,6 +102,72 @@ const updateWantToRead = (req, res) => {
   });
 };
 
+// Update Read
+const updateHaveRead = (req, res) => {
+  // Find user to update
+  db.User.findById(req.params.id, (err, foundUser) => {
+    if (err) return res.status(500);
+
+    // Figure out if book already exists in list
+    if (foundUser.booksRead.includes(req.body.bookId)) {
+      return res.status(200).json({
+              message: "Book already saved!",
+            });
+    } else {
+
+      foundUser.booksRead.push(req.body.bookId)
+      
+      foundUser.save((err, updatedUser) => {
+        if (err) {
+          return res.json({
+            status: 400,
+            message: 'Something went wrong. Please try again.',
+          });
+        };
+
+        res.json({
+          status: 200,
+          data: updatedUser,
+          requestedAt: new Date().toLocaleString(),
+        });
+      });
+    };
+  });
+};
+
+// Update Read
+const updateRecommended = (req, res) => {
+  // Find user to update
+  db.User.findById(req.params.id, (err, foundUser) => {
+    if (err) return res.status(500);
+
+    // Figure out if book already exists in list
+    if (foundUser.recommendedBooks.includes(req.body.bookId)) {
+      return res.status(200).json({
+              message: "Book already saved!",
+            });
+    } else {
+
+      foundUser.recommendedBooks.push(req.body.bookId)
+      
+      foundUser.save((err, updatedUser) => {
+        if (err) {
+          return res.json({
+            status: 400,
+            message: 'Something went wrong. Please try again.',
+          });
+        };
+
+        res.json({
+          status: 200,
+          data: updatedUser,
+          requestedAt: new Date().toLocaleString(),
+        });
+      });
+    };
+  });
+};
+
 
 // Delete book from wantToRead
 // Find the User to update
@@ -149,6 +215,8 @@ module.exports = {
   find,
   update,
   updateWantToRead,
+  updateHaveRead,
+  updateRecommended,
   deleteBookFromUser,
   destroy,
 };

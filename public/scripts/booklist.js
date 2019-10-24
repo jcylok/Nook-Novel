@@ -105,7 +105,6 @@ const bookAdded = (res) => {
 
 const addToWantToRead = (res) => {
   bookId = {bookId: res.data._id};
-  console.log(bookId);
   // AJAX PUT REQUEST
   $.ajax({
     method: 'PUT',
@@ -129,6 +128,56 @@ const addBookToDatabase1 = (event) => {
   });
 };
 
+const addToRecommendedBooks = (res) => {
+  bookId = {bookId: res.data._id};
+  // AJAX PUT REQUEST
+  $.ajax({
+    method: 'PUT',
+    url: `http://localhost:4000/api/v1/users/recommend/5db09cb80b102b9887381d46`,
+    data: bookId,
+    success: bookAdded,
+    error: onError,
+  });
+};
+
+const addBookToDatabase2 = (event) => {
+  const bookLink = event.target.parentNode.parentNode.parentNode.id;
+  $.ajax({
+    method: 'POST',
+    url: 'http://localhost:4000/api/v1/books/',
+    data: {
+      googleKey: bookLink,
+    },
+    success: addToRecommendedBooks,
+    error: onError,
+  });
+};
+
+const addToHaveRead = (res) => {
+  bookId = {bookId: res.data._id};
+  // AJAX PUT REQUEST
+  $.ajax({
+    method: 'PUT',
+    url: `http://localhost:4000/api/v1/users/haveread/5db09cb80b102b9887381d46`,
+    data: bookId,
+    success: bookAdded,
+    error: onError,
+  });
+};
+
+const addBookToDatabase3 = (event) => {
+  const bookLink = event.target.parentNode.parentNode.parentNode.id;
+  $.ajax({
+    method: 'POST',
+    url: 'http://localhost:4000/api/v1/books/',
+    data: {
+      googleKey: bookLink,
+    },
+    success: addToHaveRead,
+    error: onError,
+  });
+};
+
 // const wantToRead = (event) => {
 //   const bookLink = $(event.target.parentNode.parentNode.parentNode.id);
 //   $.ajax({
@@ -146,15 +195,18 @@ const addBookToDatabase1 = (event) => {
 
 $('.book-gallery').on('click', '.fa-bookmark', function
 (event) {
+  event.preventDefault();
   addBookToDatabase1(event);
 });
 
 $('.book-gallery').on('click', '.fa-star', function
 (event) {
+  event.preventDefault();
   addBookToDatabase2(event);
 });
 
 $('.book-gallery').on('click', '.fa-check-square', function
 (event) {
+  event.preventDefault();
   addBookToDatabase3(event);
 });
