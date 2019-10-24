@@ -76,11 +76,12 @@ const updateWantToRead = (req, res) => {
     if (err) return res.status(500);
 
     // Figure out if book already exists in list
-    if(foundUser.booksWantToRead.includes(req.body.bookId)) {
+    if (foundUser.booksWantToRead.includes(req.body.bookId)) {
       return res.status(200).json({
               message: "Book already saved!",
             });
     } else {
+
       foundUser.booksWantToRead.push(req.body.bookId)
       
       foundUser.save((err, updatedUser) => {
@@ -89,7 +90,8 @@ const updateWantToRead = (req, res) => {
             status: 400,
             message: 'Something went wrong. Please try again.',
           });
-      };
+        };
+
         res.json({
           status: 200,
           data: updatedUser,
