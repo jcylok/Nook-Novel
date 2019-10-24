@@ -32,6 +32,7 @@ logoutButton.addEventListener('click', (event) => {
   })
     .then(dataStream => dataStream.json())
     .then(res => {
+      localStorage.clear();
       if (res.status === 200) {
         window.location = '/';
         
