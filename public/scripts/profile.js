@@ -6,10 +6,10 @@ const handleSuccess = (user) => {
   document.querySelector('title').innerHTML = `${user.firstName}'s Profile`
 
 
-  document.querySelector('.pos-f-t').insertAdjacentHTML('beforeend', `
+  document.querySelector('.wrapper').insertAdjacentHTML('beforeend', `
      <section>
         <div>
-            <h4><strong>Name:</strong> ${user.firstName} ${user.lastName}</h4>
+            <h4><strong>Welcome back ,${user.firstName}!</strong> </h4>
             <p><strong>Email</strong>: ${user.email}</p>
             <p><strong>Like Genres</strong>: ${user.likedGenres}</p>
         </div>
@@ -97,3 +97,22 @@ const getProfile = () => {
     moveToSelected('next');
   });
   
+
+
+  $(document).ready(function() {
+    $(".menu-icon").on("click", function() {
+          $("nav ul").toggleClass("showing");
+    });
+});
+
+// Scrolling Effect
+
+$(window).on("scroll", function() {
+    if($(window).scrollTop()) {
+          $('nav').addClass('black');
+    }
+
+    else {
+          $('nav').removeClass('black');
+    }
+})
