@@ -1,5 +1,12 @@
 const db = require('../models');
 
+const error500 = () => {
+  res.status(500).json({
+    status: 500,
+    error: [{ message: 'Something went wrong, please try again' }],
+  });
+};
+
 // Creates One User
 const create = (req, res) => {
   db.User.create(req.body, (err, createdUser) => {
@@ -60,6 +67,68 @@ const update = (req, res) => {
     });
 };
 
+//look at pokedex trainers, modify directly, save
+
+// Update WantToRead
+const updateWantToRead = (req, res) => {
+  // Find user to update
+  db.User.findById(req.params.id, (err, foundUser) => {
+    if (err) return res.status(500);
+
+    // Figure out if book already exists in list
+    if (foundUser.booksWantToRead.includes(req.body.bookId)) {
+      return res.status(200).json({
+              message: "Book already saved!",
+            });
+    } else {
+
+      foundUser.booksWantToRead.push(req.body.bookId)
+      
+      foundUser.save((err, updatedUser) => {
+        if (err) {
+          return res.json({
+            status: 400,
+            message: 'Something went wrong. Please try again.',
+          });
+        };
+
+        res.json({
+          status: 200,
+          data: updatedUser,
+          requestedAt: new Date().toLocaleString(),
+        });
+      });
+    };
+  });
+};
+
+
+// Delete book from wantToRead
+// Find the User to update
+
+const deleteBookFromUser = () => {
+  db.User.findById(req.params.id, (err, foundUser) => {
+  // Delete the book by ID
+  foundUser.booksWantToRead.findOne({ bookId: req.body.bookId}, (err, deletedBook) => {
+    if (err) return console.log(err);
+
+    
+  })
+
+
+  if (req.body.booksWantToRead) {
+    db.Book.findByIdAndDelete( { id: req.body.id }, (err, deletedBook) => {
+      if (err) return console.log(err);
+
+      res.status(200).json({
+        status: 200,
+        data: deletedBook,
+      });
+    });
+  };
+  });
+};
+
 // Destroys One User by ID
 const destroy = (req, res) => {
   db.User.findByIdAndDelete(req.params.id, (err, deletedUser) => {
@@ -71,13 +140,15 @@ const destroy = (req, res) => {
       data: deletedUser,
       dateRequested: new Date().toLocaleString(),
     });
-  });
-};
+  })
+}
 
 module.exports = {
   create,
   index,
   find,
   update,
+  updateWantToRead,
+  deleteBookFromUser,
   destroy,
 };

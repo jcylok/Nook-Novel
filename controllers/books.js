@@ -9,9 +9,9 @@ const create = (req, res) => {
       error: [{ message: 'Something went wrong, try again!' }]
     });
 
-    if (foundBook) return res.status(400).json({
-      status: 400,
-      error: [{ message: 'Invalid request. Please try again.' }]
+    if (foundBook) return res.status(200).json({
+      status: 200,
+      data: foundBook,
     });
 
     db.Book.create(req.body, (err, createdBook) => {
