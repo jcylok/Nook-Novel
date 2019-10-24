@@ -117,17 +117,21 @@ const addBookToDatabase = (event) => {
 };
 
 const wantToRead = (event) => {
-  console.log()
+  const bookLink = $(event.target.parentNode.parentNode.parentNode.id);
   $.ajax({
     method: 'PUT',
-    url: 'http://localhost:4000/api/v1/users/5db09cb80b102b9887381d46',
+    url: `http://localhost:4000/api/v1/users/5db09cb80b102b9887381d46`,
     data: {
-      "booksWantToRead": $(event.target.parentNode.parentNode.parentNode.id)
+      "booksWantToRead": 'https://www.googleapis.com/books/v1/volumes/S7XJU5kf6F4C',
     },
     success: buttonSuccess,
     error: onError,
   });
 };
+
+// send booklink to put request
+// grab book model that has the same booklink
+// push that book model to WantToRead [array]
 
 
 $('.book-gallery').on('click', '.fa-bookmark', function

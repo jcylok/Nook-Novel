@@ -60,6 +60,8 @@ const update = (req, res) => {
     });
 };
 
+//look at pokedex trainers, modify directly, save
+
 // Destroys One User by ID
 const destroy = (req, res) => {
   db.User.findByIdAndDelete(req.params.id, (err, deletedUser) => {
