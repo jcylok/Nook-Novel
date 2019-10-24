@@ -29,7 +29,7 @@ const onSuccess = (res) => {
 };
 
 const onError = (err) => {
-  console.log({err});
+  console.log(err);
 };
 
 const search = () => {
@@ -59,12 +59,16 @@ const bookSuccess = (res) => {
 
 }
 
+const detailError = () => {
+
+}
+
 const bookDetails = function(event) {
   $.ajax({
     method: 'GET',
     url: ($(event.target.parentNode.parentNode)[0].id || $(event.target.parentNode)[0].id),
     success: bookSuccess,
-    error: onError,
+    error: detailError,
   });
 };
 
@@ -95,15 +99,24 @@ window.onclick = function(event) {
 
 // ADD BOOKS TO RECOMMENDED, WANT TO READ, READ
 
-const buttonSuccess = () => {
-  console.log('success');
-};
-
-const grabBookInfo = (event) => {
-
+const bookAdded = (res) => {
+  console.log(res);
 }
 
-const addBookToDatabase = (event) => {
+const addToWantToRead = (res) => {
+  bookId = {bookId: res.data._id};
+  console.log(bookId);
+  // AJAX PUT REQUEST
+  $.ajax({
+    method: 'PUT',
+    url: `http://localhost:4000/api/v1/users/wanttoread/5db09cb80b102b9887381d46`,
+    data: bookId,
+    success: bookAdded,
+    error: onError,
+  });
+};
+
+const addBookToDatabase1 = (event) => {
   const bookLink = event.target.parentNode.parentNode.parentNode.id;
   $.ajax({
     method: 'POST',
@@ -111,40 +124,37 @@ const addBookToDatabase = (event) => {
     data: {
       googleKey: bookLink,
     },
-    success: buttonSuccess,
+    success: addToWantToRead,
     error: onError,
   });
 };
 
-const wantToRead = (event) => {
-  const bookLink = $(event.target.parentNode.parentNode.parentNode.id);
-  $.ajax({
-    method: 'PUT',
-    url: `http://localhost:4000/api/v1/users/5db09cb80b102b9887381d46`,
-    data: {
-      "booksWantToRead": 'https://www.googleapis.com/books/v1/volumes/S7XJU5kf6F4C',
-    },
-    success: buttonSuccess,
-    error: onError,
-  });
-};
-
-// send booklink to put request
-// grab book model that has the same booklink
-// push that book model to WantToRead [array]
-
+// const wantToRead = (event) => {
+//   const bookLink = $(event.target.parentNode.parentNode.parentNode.id);
+//   $.ajax({
+//     method: 'PUT',
+//     url: `http://localhost:4000/api/v1/users/5db1ccf7a30c7fb04993a6fd`,
+//     data: {
+//       "booksWantToRead": {
+//         "googleKey": bookLink,
+//       },
+//     },
+//     success: createBookSuccess,
+//     error: onError,
+//   });
+// };
 
 $('.book-gallery').on('click', '.fa-bookmark', function
 (event) {
-  addBookToDatabase(event);
+  addBookToDatabase1(event);
 });
 
 $('.book-gallery').on('click', '.fa-star', function
 (event) {
-  addBookToDatabase(event);
+  addBookToDatabase2(event);
 });
 
 $('.book-gallery').on('click', '.fa-check-square', function
 (event) {
-  addBookToDatabase(event);
+  addBookToDatabase3(event);
 });

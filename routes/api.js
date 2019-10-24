@@ -17,7 +17,7 @@ router.get('/profile/:userId', ctlr.auth.showProfile);
 
 
 // ----------------------------- BOOK LIST -------------------------- //
-// router.get('/booklist', ctlr.auth.showProfile);
+router.get('/booklist', ctlr.auth.showProfile);
 
 
 module.exports = router;

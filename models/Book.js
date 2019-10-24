@@ -6,7 +6,11 @@ const bookSchema = new Schema({
   ISBN10: String,
   ISBN13: String,
   genres: [String],
-  recommendedBy: [String],
+  recommendedBy: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  }],
+  bookId: String,
 });
 
 const Book = mongoose.model('Book', bookSchema);
