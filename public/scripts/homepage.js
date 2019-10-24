@@ -80,7 +80,7 @@ form[i] && form[i].addEventListener('submit', (event) => {
       .then(dataStream => dataStream.json())
       .then(res => {
         console.log(res);
-        if (res.status === 201) return window.location = '/login';
+        if (res.status === 201) return alert('Thanks for Signing up');
       })
       .catch(err => console.log(err));
   }

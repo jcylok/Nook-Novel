@@ -10,13 +10,34 @@ const handleSuccess = (user) => {
      <section class="welcome">
         <div>
             <h4><strong>${user.firstName}, welcome back!</strong> </h4>
-            <p><strong>Email</strong>: ${user.email}</p>
-            <p><strong>Like Genres</strong>: ${user.likedGenres}</p>
+            <p><strong>Books & Coffee are always the perfect match...</strong></p>
         </div>
      </section> 
   `);
 }
 
+// Handle Logout
+const logoutButton = document.getElementById('logout');
+console.log(logoutButton);
+// Listen for logout click event
+
+logoutButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  fetch('/api/v1/logout', {
+    method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+  })
+    .then(dataStream => dataStream.json())
+    .then(res => {
+      if (res.status === 200) {
+        window.location = '/';
+        
+      }
+    })
+})
 
 
 const getProfile = () => {

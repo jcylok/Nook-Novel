@@ -16,7 +16,7 @@
     crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <script src="/scripts/profile.js"></script>
+    <script defer src="/scripts/profile.js"></script>
 
 
     <title>Profile</title>
@@ -50,14 +50,32 @@
                     <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="#">Book Ocean</a></li>
-                    <li><a href="#">Find a coffee shop</a></li>
-                    <li><a href="#">Sign Out</a></li>
+                    <li><a href="#searchcafe">Find a coffee shop</a></li>
+                    <li><a id="logout" href="#">Sign Out</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
     </div>
-    <h1>Books You Might Like</h1>
+    <h1>
+        <div class="buttons">
+            <div id="prev" class="round">
+                <div id="cta">
+                    <span class="arrow primera prev "></span>
+                    <span class="arrow segunda prev "></span>
+                </div>
+            </div>                
+        </div>
+        Books You Might Like
+        <div class="buttons">
+            <div id="next" class="round">
+                <div id="cta">
+                    <span class="arrow primera next "></span>
+                    <span class="arrow segunda next "></span>
+                </div>
+            </div>                
+        </div>
+    </h1>
     <section class="books">
 
                     <div id="carousel">
@@ -85,21 +103,16 @@
                       <div class="nextRightSecond">
                         <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
                       </div>
-                
+                      
                       <div class="hideRight">
                         <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
                       </div>
-                    </div>         
-                    <div class="buttons">
-                      <button id="prev">Prev</button>
-                      <button id="next">Next</button>
-                    </div>
-                
-                 
+                      
+                    </div>                          
     </section>
 
 
-    <section class="container">
+    <section id="searchcafe" class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
                 <form class="card card-sm">
@@ -109,7 +122,7 @@
                         </div>
                         <!--end of col-->
                         <div class="col">
-                            <input id="searchcafe" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Where am I?">
+                            <input  class="form-control form-control-lg form-control-borderless" type="search" placeholder="Where am I?">
                         </div>
                         <!--end of col-->
                         <div class="col-auto">
