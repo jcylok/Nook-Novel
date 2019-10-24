@@ -8,6 +8,20 @@ const error500 = () => {
   });
 };
 
+// View User
+const viewUser = (req, res) => {
+  db.User.find({}, (err, allUser) => {
+    if (err) return error500();
+    res.json({
+      status: 200,
+      count: allUser.length,
+      data: allUser,
+      requestedAt: new Date().toLocaleString()
+    })
+  })
+}
+
+
 // POST Create User
 const createUser = (req, res) => {
   db.User.findOne( { email: req.body.email }, (err, foundUser) => {
@@ -46,7 +60,7 @@ const createUser = (req, res) => {
 };
 
 
-// POST Create Session
+// POST Login
 const createSession = (req, res) => {
   db.User.findOne({ email: req.body.email }, (err, foundUser) => {
     if (err) return error500();
@@ -89,8 +103,24 @@ const verifyAuth = (req, res) => {
   });
 };
 
+
+// GET Show Profile
+const showProfile = (req, res) => {
+  db.User.findById(req.params.userId, (err, foundProfile) => {
+    if (err) return res.status(500).json({
+      error: [{ message: 'Something went wrong. Please try again'}],
+    });
+    res.status(200).json({
+      status: 200,
+      data: foundProfile,
+    })
+  })
+}
+
 module.exports = {
+  viewUser,
   createUser,
   createSession,
   verifyAuth,
+  showProfile,
 }

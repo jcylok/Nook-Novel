@@ -20,25 +20,25 @@ router.get('/signup', (req, res) => {
 
 
 // GET Login
-router.get('/login', (req, res) => {
-  res.sendFile('views/auth/login.html', {
-    root: `${__dirname}/../`
-  });
-});
+// router.get('/login', (req, res) => {
+//   res.sendFile('views/auth/login.html', {
+//     root: `${__dirname}/../`
+//   });
+// });
 
 
 // ------------------------------- Profile ---------------------------- //
 
 // GET User Profile
-// router.get('/profile/:userId', (req, res) => {
-//   if (!req.session.currentUser) {
-//     return res.redirect('/login');
-//   }
+router.get('/profile/:userId', (req, res) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/');
+  }
 
-//   res.sendFile('views/profile/show.html', {
-//     root: `${__dirname}/../`
-//   });
-// });
+  res.sendFile('views/profile/show.html', {
+    root: `${__dirname}/../`
+  });
+});
 
 
 // ------------------------------- Book list ---------------------------- //
