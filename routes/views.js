@@ -20,11 +20,11 @@ router.get('/signup', (req, res) => {
 
 
 // GET Login
-router.get('/login', (req, res) => {
-  res.sendFile('views/auth/login.html', {
-    root: `${__dirname}/../`
-  });
-});
+// router.get('/login', (req, res) => {
+//   res.sendFile('views/auth/login.html', {
+//     root: `${__dirname}/../`
+//   });
+// });
 
 
 // ------------------------------- Profile ---------------------------- //
