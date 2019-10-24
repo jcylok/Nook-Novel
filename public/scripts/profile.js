@@ -142,3 +142,11 @@ $(window).on("scroll", function() {
           $('nav').removeClass('black');
     }
 })
+
+
+$('form').on('submit', function(event) {
+  event.preventDefault();
+  console.log($('#searchinfo').val());
+  let userSearchItem = $('#searchinfo').val();
+  $('#map').attr('src', `https://www.google.com/maps/embed/v1/search?q=coffee%20near%20${userSearchItem}&key=AIzaSyCPNBaefh5KaA5eWAmZvyl4-m7hqfOVnoE`);
+})
