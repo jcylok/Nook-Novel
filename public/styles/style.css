@@ -136,7 +136,14 @@ nav ul li a:hover {
 
 .buttons {
   display: inline-block;
+  color: white;
+  opacity: 0.7;
 }
+
+.buttons:hover { 
+  color:#fed136;
+  text-decoration: none;
+} /* CSS link hover (green) */
 
 .center-con {
   display: flex;
@@ -156,20 +163,33 @@ nav ul li a:hover {
   
 }
 
-#cta{
-  width:100%; cursor: pointer; position: absolute;
+.buttons{
+ cursor: pointer; 
 }
 
-#cta .arrow{left: 30%;}
-.arrow {position: absolute; bottom: 0;  margin-left:0px; width: 12px; height: 12px; background-size: contain; top:10px;}
-.segunda{margin-left: 8px;}
+/* #cta .arrow{
+  left: 30%;
+}
+.arrow {
+  position: absolute;
+  bottom: 0; 
+  margin-left:0px;
+  width: 12px;
+  height: 12px;
+  background-size:
+  contain; top:10px;
+}
+
+.segunda{
+  margin-left: 8px;
+}
 .next {
 background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==);
 }
 .prev {
 background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==);
 }
-  
+   */
 
 @keyframes bounceAlpha {
 0% {opacity: 1; transform: translateX(0px) scale(1);}
@@ -214,26 +234,41 @@ background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9
 
 h1 {
   text-align: center;
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: rgba(140,117,106, 0.2);
   position: relative;
   font-size: 35px;
+  font-family: 'Gochi Hand', cursive;
 
 }
 
+h4 {
+  /* color: rgba(109,77,61, 1); */
+}
+
+.welcome p {
+  
+  color: rgba(222,226,236, 1);
+}
+
 #next {
-  transform: translate(0, 3px);
+  transform: translate(0, 7px);
   position: relative;
 }
 
 #prev {
-  transform: translate(0, 3px);
+  transform: translate(0, 7px);
   position: relative;
+
+
+}
+
+.leftArrow {
   -webkit-transform:rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
-
 }
 
 
@@ -246,15 +281,16 @@ h1 {
 
   }
   
-  #prev {
+  /* #prev {
     transform: translate(0, 3px);
-      -webkit-transform:rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
 
-  }
+  } */
+
 
  
 }
@@ -375,7 +411,6 @@ section {
 
 
 
-
 .footer{
   padding:25px 0;
  text-align:center
@@ -411,9 +446,9 @@ ul.social-buttons li a{
  border-radius:100%;
  outline:0;
  /* background-color:#212529 */
- background-color: blue;
+ background-color: #fed136;
 }
 
 ul.social-buttons li a:active,ul.social-buttons li a:focus,ul.social-buttons li a:hover{
   background-color:#fed136
- }
+}
