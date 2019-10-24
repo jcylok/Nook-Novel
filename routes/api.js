@@ -4,10 +4,10 @@ const ctlr = require('../controllers');
 
 
 // ----------------------------- AUTH -------------------------- //
-router.get('/signup', ctlr.auth.viewUser);
+router.get('/users', ctlr.auth.viewUser);
 router.post('/signup', ctlr.auth.createUser);
 router.post('/login', ctlr.auth.createSession);
-// router.delete('/logout', ctlr.auth.deleteSession);
+router.delete('/logout', ctlr.auth.deleteSession);
 router.get('/verify', ctlr.auth.verifyAuth);
 
 

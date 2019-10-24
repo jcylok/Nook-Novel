@@ -117,10 +117,26 @@ const showProfile = (req, res) => {
   })
 }
 
+
+// DELETE Logout
+const deleteSession = (req, res) => {
+  req.session.destroy(err => {
+    if (err) return res.status(500).json({
+      status: 500,
+      errors: [{message: 'Something went wrong. Please try again'}]});
+
+    res.status(200).json({
+      status: 200,
+      message: 'Success',
+    });
+  });
+}
+
 module.exports = {
   viewUser,
   createUser,
   createSession,
   verifyAuth,
   showProfile,
+  deleteSession,
 }
