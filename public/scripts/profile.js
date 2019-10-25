@@ -243,3 +243,9 @@ $.ajax({
   success: pullRecommended,
   error: onError,
 });
+
+$( ".getinfo" ).dblclick(function() {
+  console.log($(this).attr('src'));
+});
+
+
