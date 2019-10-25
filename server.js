@@ -7,6 +7,7 @@ const session = require('express-session');
 const db = require('./models');
 const routes = require('./routes');
 const app = express();
+// require('dotenv').config();
 
 // ---------- MIDDLEWARE ---------- //
 app.use(bodyParser.urlencoded({ extended: true }));

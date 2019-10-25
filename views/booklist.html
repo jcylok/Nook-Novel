@@ -18,7 +18,8 @@
 
 		<!-- Custom CSS -->
 		<!-- <link rel="stylesheet" href="styles/style.css"> -->
-    <link rel="stylesheet" href="styles/booklist.css">
+		<link rel="stylesheet" href="styles/booklist.css">
+		<link rel="stylesheet" href="styles/style.css">
 
     <!-- JS -->
 		<script
@@ -31,11 +32,10 @@
 		<script src="../scripts/booklist.js" defer></script>
 		<script src="https://kit.fontawesome.com/4634847c36.js" defer></script>
 
-		<title>BOOK LIST</title>
+		<title>N&N | Library</title>
 	</head>
-	
 	<body>
-
+		<div class="opacity">
 		    <div class="wrapper">
 					<header>
 						<nav>
@@ -43,7 +43,7 @@
 								<i class="fa fa-bars fa-2x"></i>
 							</div>
 							<div class="logo">
-								Booffee
+								Nook & Novel
 							</div>
 							<div class="menu">
 								<ul>
@@ -56,19 +56,27 @@
 						</nav>
 					</header>
 				</div>
-    <h1 class="text-center">BOOKZ</h1>
+				<div class="center-this">
+				<div class="section-header library">LIBRARY</div>
+				<br>
+				</div>
+				<div class="center-this">
+				<div class="search-bar">
+						<form id="searchcontainer" class="form-inline">
+							<input type="text" class="form-control book-input" name="q" value="" placeholder="Search Books">
+							<input type="submit" value="GO!" class="btn btn-primary">
+						</form>
+					</div>
+				</div>
 	  <div class="container">
 			<div class="row">
-				<div class="search-bar">
-					<form id="searchcontainer" class="form-inline">
-						<input type="text" class="form-control book-input" name="q" value="" placeholder="Search Books">
-						<input type="submit" value="GO!" class="btn btn-primary">
-					</form>
-				</div>
+
 				<div class="book-gallery"></div>
 			</div>
 		</div>
-  </body>
+	</div>
+	</body>
+	
   
 
 </html>
