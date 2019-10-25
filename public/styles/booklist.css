@@ -12,7 +12,7 @@ body {
   /* justify-content: center; */
   align-items: center;
   /* background-color: white; */
-  margin: auto;
+  margin: 0 auto;
   /* transform: translate(80px,0) */
 }
 
@@ -40,8 +40,8 @@ body {
   width: 325px;
   height: 175px;
   display: flex;
-  background-color: #A08670;
-  border: 10px solid #A08670;
+  background-color: #D3CFCC;
+  border: 10px solid #D3CFCC;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -81,6 +81,8 @@ img.book-img:hover {
   margin-top: 5px;
   margin-left: 15px;
 }
+
+
 
 /* -------------- ICONS --------------- */
 .icons {
@@ -146,7 +148,7 @@ img.book-img:hover {
   padding: 20px;
   border: 1px solid #888;
   width: 66%; /* Could be more or less, depending on screen size */
-  height: 66vh;
+  height: 10vh;
   display: flex;
   flex-direction: row;
 }
@@ -155,6 +157,7 @@ img.book-img:hover {
 .close {
   color: #888;
   float: right;
+  flex: end;
   font-size: 28px;
   font-weight: bold;
   text-align: right;
@@ -192,7 +195,7 @@ header {
   float: left;
   margin: 16px 46px;
   /* color: #fff; */
-  color:#fed136;
+  color: goldenrod;
   font-family:'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
   font-weight: bold;
   font-size: 40px;
@@ -296,9 +299,9 @@ nav ul li a:hover {
 }
 
 .modal-content {
-  background: #fed136;
-  opacity: 0.8;
-  height: 1000px;
+  background: #D3CFCC;
+  opacity: 1;
+  height: 66vh;
 }
 
 #myModal img{
@@ -322,3 +325,13 @@ h1 {
   font-family: 'Gochi Hand', cursive;
 }
 
+.center-this {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.book-input {
+  width: 400px;
+}
