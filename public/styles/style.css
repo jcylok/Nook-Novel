@@ -343,6 +343,7 @@ section {
 
 .booksWantToRead {
   margin-top: 125px;
+  overflow: hidden;
 }
 
 .find-coffee {
@@ -521,17 +522,17 @@ background: #707070;
   border-radius: 10px;
 }
 
-#first-saved  {
+.first-saved  {
   width: 100px;
   height: auto;
 }
 
-#second-saved {
+.second-saved {
   width: 100px;
   height: auto;
 }
 
-#third-saved {
+.third-saved {
   width: 100px;
   height: auto;
 }

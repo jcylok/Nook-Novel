@@ -156,15 +156,15 @@ const onError = (err) => {
 const pushImagesIntoArray = (res) => {
   recommendedBooksArr.push(res.volumeInfo.imageLinks.thumbnail);
   counter++;
-  if (counter === 7) {
-    $('.first-pic').attr('src',`${recommendedBooksArr[0]}`);
-    $('.second-pic').attr('src',`${recommendedBooksArr[1]}`);
-    $('.third-pic').attr('src',`${recommendedBooksArr[2]}`);
-    $('.fourth-pic').attr('src',`${recommendedBooksArr[3]}`);
-    $('.fifth-pic').attr('src',`${recommendedBooksArr[4]}`);
-    $('.sixth-pic').attr('src',`${recommendedBooksArr[5]}`);
-    $('.seventh-pic').attr('src',`${recommendedBooksArr[6]}`);
-  }
+  // if (counter === 7) {
+    $('.first-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-1]}`);
+    $('.second-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-2]}`);
+    $('.third-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-3]}`);
+    $('.fourth-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-4]}`);
+    $('.fifth-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-5]}`);
+    $('.sixth-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-6]}`);
+    $('.seventh-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-7]}`);
+  // }
 };
 
 const pullFromBooksGoogle = (res) => {
@@ -208,14 +208,15 @@ $.ajax({
 const savedBooksArr = [];
 
 const pushSavedImages = (res) => {
+  console.log(res.volumeInfo.imageLinks.thumbnail)
   savedBooksArr.push(res.volumeInfo.imageLinks.thumbnail);
-  counter++;
-  console.log(savedBooksArr);
-  if (counter === 3) {
-    $('.first-saved').attr('src',`${savedBooksArr[0]}`);
-    $('.second-saved').attr('src',`${savedBooksArr[1]}`);
-    $('.third-saved').attr('src',`${savedBooksArr[2]}`);
-  }
+  console.log(savedBooksArr.length);
+    $('.first-saved').attr('src',`${savedBooksArr[savedBooksArr.length-1]}`);
+    $('.second-saved').attr('src',`${savedBooksArr[savedBooksArr.length-2]}`);
+    $('.third-saved').attr('src',`${savedBooksArr[savedBooksArr.length-3]}`);
+    $('.fourth-saved').attr('src',`${savedBooksArr[savedBooksArr.length-4]}`);
+    $('.fifth-saved').attr('src',`${savedBooksArr[savedBooksArr.length-5]}`);
+    $('.sixth-saved').attr('src',`${savedBooksArr[savedBooksArr.length-6]}`);
 };
 
 const pullSavedFromBooksGoogle = (res) => {
