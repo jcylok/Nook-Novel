@@ -256,6 +256,8 @@ h4 {
   position: relative;
 }
 
+
+
 #prev {
   transform: translate(0, 7px);
   position: relative;
@@ -408,7 +410,15 @@ section {
 }
 
 
+.carousel-inner img  {
+  width: 50px;
+  margin: auto;
+}
 
+.carousel-item .active {
+  margin-right: 0;
+
+}
 
 
 .footer{

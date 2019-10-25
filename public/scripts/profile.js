@@ -61,11 +61,29 @@ const getProfile = () => {
 
 
 
+$(document).ready(function() {
+    $(".menu-icon").on("click", function() {
+          $("nav ul").toggleClass("showing");
+    });
+});
+
+// Scrolling Effect
+
+$(window).on("scroll", function() {
+    if($(window).scrollTop()) {
+          $('nav').addClass('black');
+    }
+
+    else {
+          $('nav').removeClass('black');
+    }
+})
+
 
 
   function moveToSelected(element) {
 
-    $('#carousel div').click(function() {
+    $('.carousel div').click(function() {
       moveToSelected($(this));
     });
     
@@ -76,9 +94,6 @@ const getProfile = () => {
     $('#next').click(function() {
       moveToSelected('next');
     });
-
-
-
 
     if (element == "next") {
       var selected = $(".selected").next();
@@ -105,6 +120,10 @@ const getProfile = () => {
     $(prevSecond).prevAll().removeClass().addClass('hideLeft');
   
   }
+
+
+
+
   
   // Eventos teclado
   $(document).keydown(function(e) {
@@ -126,23 +145,7 @@ const getProfile = () => {
   
 
 
-  $(document).ready(function() {
-    $(".menu-icon").on("click", function() {
-          $("nav ul").toggleClass("showing");
-    });
-});
 
-// Scrolling Effect
-
-$(window).on("scroll", function() {
-    if($(window).scrollTop()) {
-          $('nav').addClass('black');
-    }
-
-    else {
-          $('nav').removeClass('black');
-    }
-})
 
 
 $('form').on('submit', function(event) {
