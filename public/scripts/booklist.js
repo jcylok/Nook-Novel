@@ -1,33 +1,9 @@
 const $search = $('form').val();
-// const db = require('../../models');
 
 const modal = document.getElementById("myModal");
 // Get the <span> element that closes the modal
 const span = document.getElementsByClassName("close")[0];
-
 const $browse = $("#continue-browsing");
-
-const userId = window.location.pathname.split('/');
-
-console.log(userId);
-
-const getBooklist = () => {
-  fetch(`/api/v1/booklist/${userId}`, {
-    method: 'GET',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  })
-    .then(dataStream => dataStream.json())
-    .then(res => {
-    console.log(res);
-    handleSuccess(res.data);
-  })
-    .catch(err => console.log(err));
-};
-
-getBooklist();
 
 const onSuccess = (res) => {
   res.items.forEach((book) => {

@@ -7,12 +7,12 @@ const handleSuccess = (user) => {
 
 
   document.querySelector('.wrapper').insertAdjacentHTML('beforeend', `
-     <section class="welcome">
+      <section class="welcome">
         <div>
             <h4><strong>${user.firstName}, welcome back!</strong> </h4>
             <p><strong>Books & Coffee are always the perfect match...</strong></p>
         </div>
-     </section> 
+      </section> 
   `);
 }
 
