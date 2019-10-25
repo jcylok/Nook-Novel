@@ -154,7 +154,7 @@ const onError = (err) => {
 }
 
 const pushImagesIntoArray = (res) => {
-  recommendedBooksArr.push(res.volumeInfo.imageLinks.small);
+  recommendedBooksArr.push(res.volumeInfo.imageLinks.thumbnail);
   counter++;
   if (counter === 7) {
     $('.first-pic').attr('src',`${recommendedBooksArr[0]}`);
@@ -208,7 +208,7 @@ $.ajax({
 const savedBooksArr = [];
 
 const pushSavedImages = (res) => {
-  savedBooksArr.push(res.volumeInfo.imageLinks.small);
+  savedBooksArr.push(res.volumeInfo.imageLinks.thumbnail);
   counter++;
   console.log(savedBooksArr);
   if (counter === 3) {

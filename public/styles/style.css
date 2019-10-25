@@ -26,8 +26,15 @@ body {
   color: white;
 }
 
-#carouselExampleIndicators {
+.map {
   height: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+#carouselExampleIndicators {
+  min-height: 600px;
+  max-height: 600px;
 }
 
 .center-it {
@@ -123,6 +130,10 @@ nav ul li a:hover {
   cursor: pointer;
   color: #fff;
   display: none;
+}
+
+.intro-heading {
+  font-size: 48px;
 }
 
 @media(max-width: 786px) {
@@ -327,16 +338,19 @@ section {
 }
 
 #searchcafe {
-  /* height: 10px;
-  padding: 0; */
+  padding: 0;
 }
 
 .booksWantToRead {
   margin-top: 125px;
 }
 
+.find-coffee {
+  margin-top: 50px;
+}
+
 #map {
-  margin: 100px;
+  margin: 0 auto;
   border-radius: 8%;
   height: 500px;
   width: 1000px;
@@ -505,4 +519,19 @@ background: #707070;
 .getinfo {
   width: 150px;
   border-radius: 10px;
+}
+
+#first-saved  {
+  width: 100px;
+  height: auto;
+}
+
+#second-saved {
+  width: 100px;
+  height: auto;
+}
+
+#third-saved {
+  width: 100px;
+  height: auto;
 }
