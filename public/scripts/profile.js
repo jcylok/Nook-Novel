@@ -156,6 +156,94 @@ $('form').on('submit', function(event) {
 })
 
 
+
+
+// AJAX
+const recommendedBooksArr = [];
+
+const onError = (err) => {
+  console.log(err)
+}
+
+
+const googleKeysArr = []
+const iterationCounter = 0;
+
+const pushImagesIntoArray = (res) => {
+  recommendedBooksArr.push(res.volumeInfo.imageLinks.medium);
+  iterationCounter++;
+  if (iterationCounter === 7) {
+    $('.first-pic').attr('src',`${recommendedBooksArr[0]}`);
+    $('.second-pic').attr('src',`${recommendedBooksArr[1]}`);
+    $('.third-pic').attr('src',`${recommendedBooksArr[2]}`);
+    $('.fourth-pic').attr('src',`${recommendedBooksArr[3]}`);
+    $('.fifth-pic').attr('src',`${recommendedBooksArr[4]}`);
+    $('.sixth-pic').attr('src',`${recommendedBooksArr[5]}`);
+    $('.seventh-pic').attr('src',`${recommendedBooksArr[6]}`);
+  }
+};
+
+const pullFromBooksGoogle = (res) => {
+  console.log(res.data.googleKey);
+  googleKeysArr.push(res.data.googleKey);
+  iterationCounter++;
+
+  $.ajax({
+    method: 'GET',
+    url: res.data.googleKey,
+    success: pushImagesIntoArray,
+    error: onError,
+  });
+
+  if (iterationCounter === 7) {
+    $('#carousel').append(`
+    <div class="hideLeft" id="${googleKeysArr[0]}">
+    <img class="first-pic" src="">
+    </div>
+    
+    <div class="prevLeftSecond" id="${googleKeysArr[1]}">
+    <img class="second-pic" src="">
+    </div>
+    
+    <div class="prev" id="${googleKeysArr[2]}">
+    <img class="third-pic" src="">
+    </div>
+    
+    <div class="selected" id="${googleKeysArr[3]}">
+    <img class="fourth-pic" src="">
+    </div>
+    
+    <div class="next" id="${googleKeysArr[4]}">
+    <img class="fifth-pic" src="">
+    </div>
+    
+    <div class="nextRightSecond" id="${googleKeysArr[5]}">
+    <img class="sixth-pic" src="">
+    </div>
+    
+    <div class="hideRight" id="${googleKeysArr[6]}">
+    <img class="seventh-pic" src="">
+    </div>
+    `
+    )};
+};
+
+const pullRecommended = (res) => {
+  res.data.recommendedBooks.forEach((book) => $.ajax({
+    method: 'GET',
+    url: `/api/v1/books/${book}`,
+    success: pullFromBooksGoogle,
+    error: onError,
+  }));
+};
+
+$.ajax({
+  method: 'GET',
+  url: `/api/v1/users/${localStorage.userId}`,
+  success: pullRecommended,
+  error: onError,
+});
+
 $( ".getinfo" ).dblclick(function() {
   console.log($(this).attr('src'));
 });
