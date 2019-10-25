@@ -167,12 +167,12 @@ const onError = (err) => {
 
 
 const googleKeysArr = []
-const iterationCounter = 0;
+let iterationCounter = 0;
 
 const pushImagesIntoArray = (res) => {
   recommendedBooksArr.push(res.volumeInfo.imageLinks.medium);
+  console.log(recommendedBooksArr);
   iterationCounter++;
-  if (iterationCounter === 7) {
     $('.first-pic').attr('src',`${recommendedBooksArr[0]}`);
     $('.second-pic').attr('src',`${recommendedBooksArr[1]}`);
     $('.third-pic').attr('src',`${recommendedBooksArr[2]}`);
@@ -180,13 +180,12 @@ const pushImagesIntoArray = (res) => {
     $('.fifth-pic').attr('src',`${recommendedBooksArr[4]}`);
     $('.sixth-pic').attr('src',`${recommendedBooksArr[5]}`);
     $('.seventh-pic').attr('src',`${recommendedBooksArr[6]}`);
-  }
 };
 
 const pullFromBooksGoogle = (res) => {
   console.log(res.data.googleKey);
-  googleKeysArr.push(res.data.googleKey);
   iterationCounter++;
+  console.log(iterationCounter);
 
   $.ajax({
     method: 'GET',
@@ -195,37 +194,37 @@ const pullFromBooksGoogle = (res) => {
     error: onError,
   });
 
-  if (iterationCounter === 7) {
-    $('#carousel').append(`
-    <div class="hideLeft" id="${googleKeysArr[0]}">
-    <img class="first-pic" src="">
-    </div>
+  // if (iterationCounter === 5) {
+  //   $('#carousel').append(`
+  //   <div class="hideLeft" id="${googleKeysArr[0]}">
+  //   <img class="first-pic" src="">
+  //   </div>`
     
-    <div class="prevLeftSecond" id="${googleKeysArr[1]}">
-    <img class="second-pic" src="">
-    </div>
+    // <div class="prevLeftSecond" id="${googleKeysArr[1]}">
+    // <img class="second-pic" src="">
+    // </div>
     
-    <div class="prev" id="${googleKeysArr[2]}">
-    <img class="third-pic" src="">
-    </div>
+    // <div class="prev" id="${googleKeysArr[2]}">
+    // <img class="third-pic" src="">
+    // </div>
     
-    <div class="selected" id="${googleKeysArr[3]}">
-    <img class="fourth-pic" src="">
-    </div>
+    // <div class="selected" id="${googleKeysArr[3]}">
+    // <img class="fourth-pic" src="">
+    // </div>
     
-    <div class="next" id="${googleKeysArr[4]}">
-    <img class="fifth-pic" src="">
-    </div>
+    // <div class="next" id="${googleKeysArr[4]}">
+    // <img class="fifth-pic" src="">
+    // </div>
     
-    <div class="nextRightSecond" id="${googleKeysArr[5]}">
-    <img class="sixth-pic" src="">
-    </div>
+    // <div class="nextRightSecond" id="${googleKeysArr[5]}">
+    // <img class="sixth-pic" src="">
+    // </div>
     
-    <div class="hideRight" id="${googleKeysArr[6]}">
-    <img class="seventh-pic" src="">
-    </div>
-    `
-    )};
+    // <div class="hideRight" id="${googleKeysArr[6]}">
+    // <img class="seventh-pic" src="">
+    // </div>
+    // `
+    // )};
 };
 
 const pullRecommended = (res) => {
