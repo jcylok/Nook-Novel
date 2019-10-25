@@ -304,9 +304,9 @@ nav ul li a:hover {
   height: 66vh;
 }
 
-#myModal img{
+/* #myModal img{
   transform: translate(30px,100px)
-}
+} */
 
 #myModal .book-info {
   transform: translate(50px,100px);
@@ -334,4 +334,44 @@ h1 {
 
 .book-input {
   width: 400px;
+}
+
+.book-title-modal {
+  font-size: 32px;
+  font-weight: 800;
+  transform: translateY(-100px);
+}
+
+.book-author-modal {
+  font-size: 18px;
+  font-weight: 800;
+  transform: translateY(-90px);
+}
+
+.book-genre-modal {
+  font-style: italic;
+  transform: translateY(-80px);
+}
+
+.book-description-modal {
+  font-size: 12px;
+  min-height: 225px;
+  width: 550px;
+  overflow: scroll;
+  transform: translateY(-60px);
+}
+
+.book-image-modal {
+  min-width: 200px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  /* align-content: center; */
+}
+
+.modal-image {
+  /* transform: translateY(-100px); */
+  background-size: cover;
+  width: 200px;
+  align-self: center;
 }

@@ -46,12 +46,14 @@ const bookSuccess = (res) => {
   <div id="myModal" class="modal" display="block">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <div>
-        <img class="modal-book-img" src="${res.volumeInfo.imageLinks.thumbnail}" />
-      </div>
+      <div class="book-image-modal">
+        <img class="modal-image" src="${res.volumeInfo.imageLinks.thumbnail}" />
+        </div>
       <div class="book-info">
-        <div class="book-title">${res.volumeInfo.title}</div>
-        <div class="book-description">${res.volumeInfo.description}</div>
+        <div class="book-title-modal">${res.volumeInfo.title}</div>
+        <div class="book-author-modal">${res.volumeInfo.authors}</div>
+        <div class="book-genre-modal">${res.volumeInfo.categories[0]}</div>
+        <div class="book-description-modal">${res.volumeInfo.description}</div>
       </div>
     </div>
   </div>
