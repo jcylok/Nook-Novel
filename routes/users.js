@@ -12,7 +12,7 @@ router.get('/:id', ctlr.users.find);
 router.post('/', ctlr.users.create);
 
 // // UPDATE
-// router.put('/:id', ctlr.users.update);
+router.put('/:id', ctlr.users.update);
 
 // UPDATE WANT TO READ
 router.put('/wanttoread/:id', ctlr.users.updateWantToRead);

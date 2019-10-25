@@ -177,14 +177,16 @@ const destroyWantToRead = () => {
   db.User.findById(req.params.id, (err, foundUser) => {
     if (err) return console.log(err);
   // Delete the book by ID
-  foundUser.booksWantToRead.findOneAndDelete({ bookId: req.body.bookId }, (err, deletedBook) => {
-    if (err) return console.log(err);
-    res.status(200).json({
-      message: 'Removed!',
-      data: deletedBook,
+    foundUser.booksWantToRead.findOneAndDelete({ bookId: req.body.bookId }, (err, deletedBook) => {
+      if (err) return console.log(err);
+      res.status(200).json({
+        message: 'Removed!',
+        data: deletedBook,
+      })
     })
-  })
-});
+  });
+}
+
 
 // Destroys One User by ID
 const destroy = (req, res) => {
