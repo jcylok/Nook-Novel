@@ -297,7 +297,8 @@ nav ul li a:hover {
 
 .modal-content {
   background: #fed136;
-  opacity: 0.9;
+  opacity: 0.8;
+  height: 1000px;
 }
 
 #myModal img{
@@ -307,5 +308,17 @@ nav ul li a:hover {
 #myModal .book-info {
   transform: translate(50px,100px);
   width: 500px;
+}
+
+form {
+  display: block;
+  margin: auto;
+}
+
+h1 {
+  background: rgba(140,117,106, 0.2);
+  position: relative;
+  font-size: 35px;
+  font-family: 'Gochi Hand', cursive;
 }
 
