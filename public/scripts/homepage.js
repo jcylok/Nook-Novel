@@ -99,6 +99,7 @@ form[i] && form[i].addEventListener('submit', (event) => {
       .then(dataStream => dataStream.json())
       .then(res => {
         console.log(res);
+        localStorage.userId = res.data.id;
         if (res.status === 201) return window.location = `/profile/${res.data.id}`;
       })
       .catch(err => console.log(err));

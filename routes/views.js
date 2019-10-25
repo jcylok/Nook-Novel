@@ -50,5 +50,14 @@ router.get('/booklist', (req, res) => {
     });
   });
   
+router.get('/booklist/:userId', (req, res) => {
+  if (!req.session.currentUser) {
+    return res.redirect('/');
+  }
+
+  res.sendFile('/views/booklist.html', {
+    root: `${__dirname}/../`
+  });
+});
 
 module.exports = router;

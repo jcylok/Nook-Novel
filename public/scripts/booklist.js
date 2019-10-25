@@ -1,10 +1,8 @@
 const $search = $('form').val();
-// const db = require('../../models');
 
 const modal = document.getElementById("myModal");
 // Get the <span> element that closes the modal
 const span = document.getElementsByClassName("close")[0];
-
 const $browse = $("#continue-browsing");
 
 const onSuccess = (res) => {
@@ -98,18 +96,15 @@ window.onclick = function(event) {
 }
 
 // ADD BOOKS TO RECOMMENDED, WANT TO READ, READ
-
 const bookAdded = (res) => {
-  console.log(res);
+  console.log(res.data);
 }
 
 const addToWantToRead = (res) => {
   bookId = {bookId: res.data._id};
-  console.log(bookId);
-  // AJAX PUT REQUEST
   $.ajax({
     method: 'PUT',
-    url: `http://localhost:4000/api/v1/users/wanttoread/5db09cb80b102b9887381d46`,
+    url: `/api/v1/users/wanttoread/${localStorage.userId}`,
     data: bookId,
     success: bookAdded,
     error: onError,
@@ -120,7 +115,7 @@ const addBookToDatabase1 = (event) => {
   const bookLink = event.target.parentNode.parentNode.parentNode.id;
   $.ajax({
     method: 'POST',
-    url: 'http://localhost:4000/api/v1/books/',
+    url: '/api/v1/books/',
     data: {
       googleKey: bookLink,
     },
@@ -129,32 +124,71 @@ const addBookToDatabase1 = (event) => {
   });
 };
 
-// const wantToRead = (event) => {
-//   const bookLink = $(event.target.parentNode.parentNode.parentNode.id);
-//   $.ajax({
-//     method: 'PUT',
-//     url: `http://localhost:4000/api/v1/users/5db1ccf7a30c7fb04993a6fd`,
-//     data: {
-//       "booksWantToRead": {
-//         "googleKey": bookLink,
-//       },
-//     },
-//     success: createBookSuccess,
-//     error: onError,
-//   });
-// };
+const addToRecommendedBooks = (res) => {
+  bookId = {bookId: res.data._id};
+  $.ajax({
+    method: 'PUT',
+    url: `/api/v1/users/recommend/${localStorage.userId}`,
+    data: bookId,
+    success: bookAdded,
+    error: onError,
+  });
+};
 
+const addBookToDatabase2 = (event) => {
+  const bookLink = event.target.parentNode.parentNode.parentNode.id;
+  $.ajax({
+    method: 'POST',
+    url: '/api/v1/books/',
+    data: {
+      googleKey: bookLink,
+    },
+    success: addToRecommendedBooks,
+    error: onError,
+  });
+};
+
+const addToHaveRead = (res) => {
+  bookId = {bookId: res.data._id};
+  $.ajax({
+    method: 'PUT',
+    url: `/api/v1/users/haveread/${localStorage.userId}`,
+    data: bookId,
+    success: bookAdded,
+    error: onError,
+  });
+};
+
+const addBookToDatabase3 = (event) => {
+  const bookLink = event.target.parentNode.parentNode.parentNode.id;
+  $.ajax({
+    method: 'POST',
+    url: '/api/v1/books/',
+    data: {
+      googleKey: bookLink,
+    },
+    success: addToHaveRead,
+    error: onError,
+  });
+};
+
+// Click Listener for Bookmark button
 $('.book-gallery').on('click', '.fa-bookmark', function
 (event) {
+  event.preventDefault();
   addBookToDatabase1(event);
 });
 
+// Click Listener for Recommend button
 $('.book-gallery').on('click', '.fa-star', function
 (event) {
+  event.preventDefault();
   addBookToDatabase2(event);
 });
 
+// Click Listener for have Read button
 $('.book-gallery').on('click', '.fa-check-square', function
 (event) {
+  event.preventDefault();
   addBookToDatabase3(event);
 });

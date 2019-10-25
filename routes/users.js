@@ -15,7 +15,9 @@ router.post('/', ctlr.users.create);
 // router.put('/:id', ctlr.users.update);
 
 // UPDATE WANT TO READ
-router.put('/wanttoread/:id', ctlr.users.updateWantToRead)
+router.put('/wanttoread/:id', ctlr.users.updateWantToRead);
+router.put('/haveread/:id', ctlr.users.updateHaveRead);
+router.put('/recommend/:id', ctlr.users.updateRecommended);
 
 // DESTROY
 router.delete('/:id', ctlr.users.destroy);

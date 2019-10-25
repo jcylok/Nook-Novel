@@ -102,32 +102,89 @@ const updateWantToRead = (req, res) => {
   });
 };
 
+// Update Read
+const updateHaveRead = (req, res) => {
+  // Find user to update
+  db.User.findById(req.params.id, (err, foundUser) => {
+    if (err) return res.status(500);
+
+    // Figure out if book already exists in list
+    if (foundUser.booksRead.includes(req.body.bookId)) {
+      return res.status(200).json({
+              message: "Book already saved!",
+            });
+    } else {
+
+      foundUser.booksRead.push(req.body.bookId)
+      
+      foundUser.save((err, updatedUser) => {
+        if (err) {
+          return res.json({
+            status: 400,
+            message: 'Something went wrong. Please try again.',
+          });
+        };
+
+        res.json({
+          status: 200,
+          data: updatedUser,
+          requestedAt: new Date().toLocaleString(),
+        });
+      });
+    };
+  });
+};
+
+// Update Read
+const updateRecommended = (req, res) => {
+  // Find user to update
+  db.User.findById(req.params.id, (err, foundUser) => {
+    if (err) return res.status(500);
+
+    // Figure out if book already exists in list
+    if (foundUser.recommendedBooks.includes(req.body.bookId)) {
+      return res.status(200).json({
+              message: "Book already saved!",
+            });
+    } else {
+
+      foundUser.recommendedBooks.push(req.body.bookId)
+      
+      foundUser.save((err, updatedUser) => {
+        if (err) {
+          return res.json({
+            status: 400,
+            message: 'Something went wrong. Please try again.',
+          });
+        };
+
+        res.json({
+          status: 200,
+          data: updatedUser,
+          requestedAt: new Date().toLocaleString(),
+        });
+      });
+    };
+  });
+};
+
 
 // Delete book from wantToRead
 // Find the User to update
 
-const deleteBookFromUser = () => {
+const destroyWantToRead = () => {
+  // Find User by ID
   db.User.findById(req.params.id, (err, foundUser) => {
-  // Delete the book by ID
-  foundUser.booksWantToRead.findOne({ bookId: req.body.bookId}, (err, deletedBook) => {
     if (err) return console.log(err);
-
-    
+  // Delete the book by ID
+  foundUser.booksWantToRead.findOneAndDelete({ bookId: req.body.bookId }, (err, deletedBook) => {
+    if (err) return console.log(err);
+    res.status(200).json({
+      message: 'Removed!',
+      data: deletedBook,
+    })
   })
-
-
-  if (req.body.booksWantToRead) {
-    db.Book.findByIdAndDelete( { id: req.body.id }, (err, deletedBook) => {
-      if (err) return console.log(err);
-
-      res.status(200).json({
-        status: 200,
-        data: deletedBook,
-      });
-    });
-  };
-  });
-};
+});
 
 // Destroys One User by ID
 const destroy = (req, res) => {
@@ -149,6 +206,8 @@ module.exports = {
   find,
   update,
   updateWantToRead,
-  deleteBookFromUser,
+  updateHaveRead,
+  updateRecommended,
+  destroyWantToRead,
   destroy,
 };
