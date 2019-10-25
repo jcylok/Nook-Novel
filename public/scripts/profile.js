@@ -155,16 +155,17 @@ const onError = (err) => {
 
 const pushImagesIntoArray = (res) => {
   recommendedBooksArr.push(res.volumeInfo.imageLinks.thumbnail);
-  counter++;
-  if (counter === 7) {
-    $('.first-pic').attr('src',`${recommendedBooksArr[0]}`);
-    $('.second-pic').attr('src',`${recommendedBooksArr[1]}`);
-    $('.third-pic').attr('src',`${recommendedBooksArr[2]}`);
-    $('.fourth-pic').attr('src',`${recommendedBooksArr[3]}`);
-    $('.fifth-pic').attr('src',`${recommendedBooksArr[4]}`);
-    $('.sixth-pic').attr('src',`${recommendedBooksArr[5]}`);
-    $('.seventh-pic').attr('src',`${recommendedBooksArr[6]}`);
-  }
+  // counter++;
+  console.log(recommendedBooksArr);
+  // if (counter === 7) {
+    $('.first-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-1]}`);
+    $('.second-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-2]}`);
+    $('.third-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-3]}`);
+    $('.fourth-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-4]}`);
+    $('.fifth-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-5]}`);
+    $('.sixth-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-6]}`);
+    $('.seventh-pic').attr('src',`${recommendedBooksArr[recommendedBooksArr.length-7]}`);
+  // }
 };
 
 const pullFromBooksGoogle = (res) => {
@@ -188,13 +189,28 @@ const pullFromBooksGoogle = (res) => {
   });
 };
 
+const bookIdArr = [];
+
 const pullRecommended = (res) => {
-  res.data.recommendedBooks.forEach((book) => $.ajax({
+  res.data.recommendedBooks.forEach((book) => {
+
+  $.ajax({
     method: 'GET',
     url: `/api/v1/books/${book}`,
     success: pullFromBooksGoogle,
     error: onError,
-  }));
+  })
+
+  bookIdArr.push(res.data.recommendedBooks);
+  // console.log(bookIdArr);
+  // $('.first-pic').attr('id',`${bookIdArr[0][bookIdArr.length-1]}`);
+  // $('.second-pic').attr('id',`${bookIdArr[1][bookIdArr.length-2]}`);
+  // $('.third-pic').attr('id',`${bookIdArr[2][bookIdArr.length-3]}`);
+  // $('.fourth-pic').attr('id',`${bookIdArr[3][bookIdArr.length-4]}`);
+  // $('.fifth-pic').attr('id',`${bookIdArr[4][bookIdArr.length-5]}`);
+  // $('.sixth-pic').attr('id',`${bookIdArr[5][bookIdArr.length-6]}`);
+  // $('.seventh-pic').attr('id',`${bookIdArr[6][bookIdArr.length-7]}`);
+  });
 };
 
 $.ajax({
@@ -208,14 +224,15 @@ $.ajax({
 const savedBooksArr = [];
 
 const pushSavedImages = (res) => {
+  console.log(res.volumeInfo.imageLinks.thumbnail)
   savedBooksArr.push(res.volumeInfo.imageLinks.thumbnail);
-  counter++;
-  console.log(savedBooksArr);
-  if (counter === 3) {
-    $('.first-saved').attr('src',`${savedBooksArr[0]}`);
-    $('.second-saved').attr('src',`${savedBooksArr[1]}`);
-    $('.third-saved').attr('src',`${savedBooksArr[2]}`);
-  }
+  console.log(savedBooksArr.length);
+    $('.first-saved').attr('src',`${savedBooksArr[savedBooksArr.length-1]}`);
+    $('.second-saved').attr('src',`${savedBooksArr[savedBooksArr.length-2]}`);
+    $('.third-saved').attr('src',`${savedBooksArr[savedBooksArr.length-3]}`);
+    $('.fourth-saved').attr('src',`${savedBooksArr[savedBooksArr.length-4]}`);
+    $('.fifth-saved').attr('src',`${savedBooksArr[savedBooksArr.length-5]}`);
+    $('.sixth-saved').attr('src',`${savedBooksArr[savedBooksArr.length-6]}`);
 };
 
 const pullSavedFromBooksGoogle = (res) => {
