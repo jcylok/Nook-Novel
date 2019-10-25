@@ -261,7 +261,7 @@ $.ajax({
 });
 
 $( ".getinfo" ).dblclick(function() {
-  console.log($(this).attr('src'));
+  console.log($(this)[0]);
 });
 
 
