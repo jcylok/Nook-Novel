@@ -185,6 +185,7 @@ const destroyWantToRead = () => {
     })
   })
 });
+}
 
 // Destroys One User by ID
 const destroy = (req, res) => {

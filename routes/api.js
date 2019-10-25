@@ -14,6 +14,7 @@ router.get('/verify', ctlr.auth.verifyAuth);
 // ----------------------------- PROFILE -------------------------- //
 
 router.get('/profile/:userId', ctlr.auth.showProfile);
+// router.get('/profile/:userId/booklist', ctlr.auth.showBooklist);
 
 
 // ----------------------------- BOOK LIST -------------------------- //
