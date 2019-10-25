@@ -41,11 +41,14 @@ const search = () => {
 };
 
 const bookSuccess = (res) => {
+  console.log(res.volumeInfo)
   const template = `
   <div id="myModal" class="modal" display="block">
     <div class="modal-content">
       <span class="close">&times;</span>
-        <img class="modal-book-img" src="${res.volumeInfo.imageLinks.extraLarge}" />
+      <div>
+        <img class="modal-book-img" src="${res.volumeInfo.imageLinks.thumbnail}" />
+      </div>
       <div class="book-info">
         <div class="book-title">${res.volumeInfo.title}</div>
         <div class="book-description">${res.volumeInfo.description}</div>
@@ -82,11 +85,11 @@ $('form').on('submit', function (event) {
 });
 
 // When the user clicks on <span> (x), close the modal
-$('.container').on('click', '.close', function() {
-  const modal = $('.modal');
-  modal.style.display = "none";
-  // modal.toggle(display);
-});
+// $('.container').on('click', '.close', function() {
+//   const modal = $('.modal');
+//   modal.style.display = "none";
+//   // modal.toggle(display);
+// });
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -192,3 +195,31 @@ $('.book-gallery').on('click', '.fa-check-square', function
   event.preventDefault();
   addBookToDatabase3(event);
 });
+
+
+
+$(document).ready(function() {
+  $(".menu-icon").on("click", function() {
+        $("nav ul").toggleClass("showing");
+  });
+});
+
+// Scrolling Effect
+
+$(window).on("scroll", function() {
+  if($(window).scrollTop()) {
+        $('nav').addClass('black');
+  }
+
+  else {
+        $('nav').removeClass('black');
+  }
+})
+
+// add profile page link
+$('#profilelink').attr('href', `/profile/${localStorage.userId}`) 
+
+
+$('.container').on('click' , '.close', function() {
+  $('#myModal').remove();
+})
