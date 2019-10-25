@@ -165,41 +165,52 @@ const onError = (err) => {
   console.log(err)
 }
 
-
 const pushImagesIntoArray = (res) => {
   recommendedBooksArr.push(res.volumeInfo.imageLinks.medium);
-  $('#carousel').append(`            
-  <div class="hideLeft">
-  <img src="${recommendedBooksArr[0]}">
-  </div>
-  
-  <div class="prevLeftSecond">
-  <img src="${recommendedBooksArr[0]}">
-  </div>
-  
-  <div class="prev">
-  <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
-  </div>
-  
-  <div class="selected">
-  <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
-  </div>
-  
-  <div class="next">
-  <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
-  </div>
-  
-  <div class="nextRightSecond">
-  <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
-  </div>
-  
-  <div class="hideRight">
-  <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
-  </div>
-  `);
+  $('.first-pic').attr('src',`${recommendedBooksArr[0]}`);
+  $('.second-pic').attr('src',`${recommendedBooksArr[1]}`);
+  $('.third-pic').attr('src',`${recommendedBooksArr[2]}`);
+  $('.fourth-pic').attr('src',`${recommendedBooksArr[3]}`);
+  $('.fifth-pic').attr('src',`${recommendedBooksArr[4]}`);
+  $('.sixth-pic').attr('src',`${recommendedBooksArr[5]}`);
+  $('.seventh-pic').attr('src',`${recommendedBooksArr[6]}`);
 };
 
+const googleKeysArr = []
+
 const pullFromBooksGoogle = (res) => {
+  googleKeysArr.push(res.data.googleKey);
+  $('#carousel').append(`
+  <div class="hideLeft" id="${googleKeysArr[0]}">
+  <img class="first-pic" src="">
+  </div>
+  
+  <div class="prevLeftSecond" id="${googleKeysArr[1]}">
+  <img class="second-pic" src="">
+  </div>
+  
+  <div class="prev" id="${googleKeysArr[2]}">
+  <img class="third-pic" src="">
+  </div>
+  
+  <div class="selected" id="${googleKeysArr[3]}">
+  <img class="fourth-pic" src="">
+  </div>
+  
+  <div class="next" id="${googleKeysArr[4]}">
+  <img class="fifth-pic" src="">
+  </div>
+  
+  <div class="nextRightSecond" id="${googleKeysArr[5]}">
+  <img class="sixth-pic" src="">
+  </div>
+  
+  <div class="hideRight" id="${googleKeysArr[6]}">
+  <img class="seventh-pic" src="">
+  </div>
+  `
+  );
+
   $.ajax({
     method: 'GET',
     url: res.data.googleKey,
