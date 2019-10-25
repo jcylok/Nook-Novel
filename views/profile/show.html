@@ -26,7 +26,7 @@
 
     <title>Profile</title>
 </head>
-<body>
+<body></body>
     <!-- <section class="pos-f-t">
         <div  id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
@@ -42,6 +42,7 @@
             </button>
         </nav>
     </section> -->
+    <div class="opacity">
     <div class="wrapper">
         <header>
             <nav>
@@ -54,7 +55,7 @@
                 <div class="menu">
                     <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/booklist">Book Ocean</a></li>
+                    <li><a href="/booklist">OUR LIBRARY</a></li>
                     <li><a href="#searchcafe">Find a coffee shop</a></li>
                     <li><a id="logout" href="#">Sign Out</a></li>
                     </ul>
@@ -64,93 +65,84 @@
     </div>
     <h1>
         <div class="buttons">
-            <div id="prev" class="round">
-                <div>
-                    <span class="glyphicon glyphicon-arrow-left"></span>
-
-               </div>                
-            </div>
-        </div>  
-        Books You Might Like
+          <!-- <div id="prev" class="round"> -->
+            <div>
+              <span id="prev" class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </div>    
+          <!-- </div>  -->
+        </div> 
+          <div class="section-header">YOUR FAVORITE BOOKS</div>
         <div class="buttons">
-            <div id="next" class="round">
+            <!-- <div id="next" class="round"> -->
                 <div>
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-            </div>                
-        </div>
+                  <span id="next" class="carousel-control-next-icon" aria-hidden="true"></span>
+                </div>                
+            <!-- </div> -->
     </h1>
-    <section class="books">
+    <section class="recommendedBooks">
 
         <div id="carousel">
     
             <div class="hideLeft">
-            <img class="getinfo first-pic" src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg">
+            <img class="getinfo first-pic" src=" ">
             </div>
     
             <div class="prevLeftSecond">
-            <img class="getinfo second-pic" src="https://i1.sndcdn.com/artworks-000185743981-tuesoj-t500x500.jpg">
+            <img class="getinfo second-pic" src=" ">
             </div>
     
             <div class="prev">
-            <img class="getinfo third-pic" src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
+            <img class="getinfo third-pic" src=" ">
             </div>
     
             <div class="selected">
-            <img class="getinfo fourth-pic" src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
+            <img class="getinfo fourth-pic" src=" ">
             </div>
     
             <div class="next">
-            <img class="getinfo fifth-pic" src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
+            <img class="getinfo fifth-pic" src=" ">
             </div>
     
             <div class="nextRightSecond">
-            <img class="getinfo sixth-pic" src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
+            <img class="getinfo sixth-pic" src=" ">
             </div>
             
             <div class="hideRight">
-            <img class="getinfo seventh-pic" src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
+            <img class="getinfo seventh-pic" src=" ">
             </div>
             
         </div>                          
     </section>
-    <h1>
-  
-            Books You've read:
-    
-    </h1>
-    <section class="books">
+
+    <section class="booksWantToRead">
+      <div class="center-it">
+        <div class="section-header">SAVED FOR LATER</div>
+      </div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-               
-                <div class="carousel-inner">
-                  <div class="carousel-item active ">
-                    <img class="getinfo d-block w-50" src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg"" alt="First slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="getinfo d-block w-50" src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg"" alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="getinfo d-block w-50" src="https://i1.sndcdn.com/artworks-000165384395-rhrjdn-t500x500.jpg"" alt="Third slide">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active ">
+              <img class="getinfo d-block w-50 first-saved" src=" " alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="getinfo d-block w-50 second-saved" src=" " alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="getinfo d-block w-50 third-saved" src=" " alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
     </section>
 
-    <section class="books">
-
-    </section>
-
-    <h1>
-        I want coffee...
-    </h1>
+    <!-- <section class="books">
+    </section>-->
     <section id="searchcafe" class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
@@ -175,7 +167,7 @@
         </div>
     </section>
     
-     
+
     <div  class="row justify-content-center">      
     <!-- <iframe id="map" width="70%" height="200%" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=coffee+94040&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br /> -->
     <iframe id="map" width="600" height="450" frameborder="0" style="border:0"
@@ -201,7 +193,7 @@
           </div>
         </div>
       </footer>
-
+    </div>
 
 
 

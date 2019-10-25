@@ -8,10 +8,7 @@ const handleSuccess = (user) => {
 
   document.querySelector('.wrapper').insertAdjacentHTML('beforeend', `
       <section class="welcome">
-        <div>
-            <h4><strong>${user.firstName}, welcome back!</strong> </h4>
-            <p><strong>Books & Coffee are always the perfect match...</strong></p>
-        </div>
+        Welcome Back, ${user.firstName}!
       </section> 
   `);
 }
@@ -120,10 +117,6 @@ $(window).on("scroll", function() {
     $(prevSecond).prevAll().removeClass().addClass('hideLeft');
   
   }
-
-
-
-
   
   // Eventos teclado
   $(document).keydown(function(e) {
@@ -140,13 +133,6 @@ $(window).on("scroll", function() {
       }
       e.preventDefault();
   });
-  
-
-  
-
-
-
-
 
 $('form').on('submit', function(event) {
   event.preventDefault();
@@ -158,21 +144,19 @@ $('form').on('submit', function(event) {
 
 
 
-// AJAX
+// AJAX CALL FOR RECOMMENDED BOOKS
 const recommendedBooksArr = [];
+const googleKeysArr = []
+let counter = 0;
 
 const onError = (err) => {
   console.log(err)
 }
 
-
-const googleKeysArr = []
-let iterationCounter = 0;
-
 const pushImagesIntoArray = (res) => {
-  recommendedBooksArr.push(res.volumeInfo.imageLinks.medium);
-  console.log(recommendedBooksArr);
-  iterationCounter++;
+  recommendedBooksArr.push(res.volumeInfo.imageLinks.small);
+  counter++;
+  if (counter === 7) {
     $('.first-pic').attr('src',`${recommendedBooksArr[0]}`);
     $('.second-pic').attr('src',`${recommendedBooksArr[1]}`);
     $('.third-pic').attr('src',`${recommendedBooksArr[2]}`);
@@ -180,12 +164,21 @@ const pushImagesIntoArray = (res) => {
     $('.fifth-pic').attr('src',`${recommendedBooksArr[4]}`);
     $('.sixth-pic').attr('src',`${recommendedBooksArr[5]}`);
     $('.seventh-pic').attr('src',`${recommendedBooksArr[6]}`);
+  }
 };
 
 const pullFromBooksGoogle = (res) => {
-  console.log(res.data.googleKey);
-  iterationCounter++;
-  console.log(iterationCounter);
+  // googleKeysArr.push(res.data.googleKey);
+  // counter ++;
+  // if (counter === 7) {
+  //   $('.first-pic').attr('id',`${googleKeysArr[0]}`);
+  //   $('.second-pic').attr('id',`${googleKeysArr[1]}`);
+  //   $('.third-pic').attr('id',`${googleKeysArr[2]}`);
+  //   $('.fourth-pic').attr('id',`${googleKeysArr[3]}`);
+  //   $('.fifth-pic').attr('id',`${googleKeysArr[4]}`);
+  //   $('.sixth-pic').attr('id',`${googleKeysArr[5]}`);
+  //   $('.seventh-pic').attr('id',`${googleKeysArr[6]}`);
+  // }
 
   $.ajax({
     method: 'GET',
@@ -193,38 +186,6 @@ const pullFromBooksGoogle = (res) => {
     success: pushImagesIntoArray,
     error: onError,
   });
-
-  // if (iterationCounter === 5) {
-  //   $('#carousel').append(`
-  //   <div class="hideLeft" id="${googleKeysArr[0]}">
-  //   <img class="first-pic" src="">
-  //   </div>`
-    
-    // <div class="prevLeftSecond" id="${googleKeysArr[1]}">
-    // <img class="second-pic" src="">
-    // </div>
-    
-    // <div class="prev" id="${googleKeysArr[2]}">
-    // <img class="third-pic" src="">
-    // </div>
-    
-    // <div class="selected" id="${googleKeysArr[3]}">
-    // <img class="fourth-pic" src="">
-    // </div>
-    
-    // <div class="next" id="${googleKeysArr[4]}">
-    // <img class="fifth-pic" src="">
-    // </div>
-    
-    // <div class="nextRightSecond" id="${googleKeysArr[5]}">
-    // <img class="sixth-pic" src="">
-    // </div>
-    
-    // <div class="hideRight" id="${googleKeysArr[6]}">
-    // <img class="seventh-pic" src="">
-    // </div>
-    // `
-    // )};
 };
 
 const pullRecommended = (res) => {
@@ -240,6 +201,45 @@ $.ajax({
   method: 'GET',
   url: `/api/v1/users/${localStorage.userId}`,
   success: pullRecommended,
+  error: onError,
+});
+
+// AJAX CALL FOR SAVED BOOKS
+const savedBooksArr = [];
+
+const pushSavedImages = (res) => {
+  savedBooksArr.push(res.volumeInfo.imageLinks.small);
+  counter++;
+  console.log(savedBooksArr);
+  if (counter === 3) {
+    $('.first-saved').attr('src',`${savedBooksArr[0]}`);
+    $('.second-saved').attr('src',`${savedBooksArr[1]}`);
+    $('.third-saved').attr('src',`${savedBooksArr[2]}`);
+  }
+};
+
+const pullSavedFromBooksGoogle = (res) => {
+  $.ajax({
+    method: 'GET',
+    url: res.data.googleKey,
+    success: pushSavedImages,
+    error: onError,
+  });
+};
+
+const pullSaved = (res) => {
+  res.data.booksWantToRead.forEach((book) => $.ajax({
+    method: 'GET',
+    url: `/api/v1/books/${book}`,
+    success: pullSavedFromBooksGoogle,
+    error: onError,
+  }));
+};
+
+$.ajax({
+  method: 'GET',
+  url: `/api/v1/users/${localStorage.userId}`,
+  success: pullSaved,
   error: onError,
 });
 
