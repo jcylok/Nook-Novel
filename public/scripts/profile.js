@@ -83,7 +83,7 @@ $(window).on("scroll", function() {
 
   function moveToSelected(element) {
 
-    $('.carousel div').click(function() {
+    $('#carousel div').click(function() {
       moveToSelected($(this));
     });
     
@@ -156,3 +156,70 @@ $('form').on('submit', function(event) {
 })
 
 
+
+
+// AJAX
+const recommendedBooksArr = [];
+
+const onError = (err) => {
+  console.log(err)
+}
+
+
+const pushImagesIntoArray = (res) => {
+  recommendedBooksArr.push(res.volumeInfo.imageLinks.medium);
+  $('#carousel').append(`            
+  <div class="hideLeft">
+  <img src="${recommendedBooksArr[0]}">
+  </div>
+  
+  <div class="prevLeftSecond">
+  <img src="${recommendedBooksArr[0]}">
+  </div>
+  
+  <div class="prev">
+  <img src="https://i1.sndcdn.com/artworks-000158708482-k160g1-t500x500.jpg">
+  </div>
+  
+  <div class="selected">
+  <img src="https://i1.sndcdn.com/artworks-000062423439-lf7ll2-t500x500.jpg">
+  </div>
+  
+  <div class="next">
+  <img src="https://i1.sndcdn.com/artworks-000028787381-1vad7y-t500x500.jpg">
+  </div>
+  
+  <div class="nextRightSecond">
+  <img src="https://i1.sndcdn.com/artworks-000108468163-dp0b6y-t500x500.jpg">
+  </div>
+  
+  <div class="hideRight">
+  <img src="https://i1.sndcdn.com/artworks-000064920701-xrez5z-t500x500.jpg">
+  </div>
+  `);
+};
+
+const pullFromBooksGoogle = (res) => {
+  $.ajax({
+    method: 'GET',
+    url: res.data.googleKey,
+    success: pushImagesIntoArray,
+    error: onError,
+  });
+};
+
+const pullRecommended = (res) => {
+  res.data.recommendedBooks.forEach((book) => $.ajax({
+    method: 'GET',
+    url: `/api/v1/books/${book}`,
+    success: pullFromBooksGoogle,
+    error: onError,
+  }));
+};
+
+$.ajax({
+  method: 'GET',
+  url: `/api/v1/users/${localStorage.userId}`,
+  success: pullRecommended,
+  error: onError,
+});
