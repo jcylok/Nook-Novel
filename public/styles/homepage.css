@@ -67,8 +67,33 @@ h1,h2,h3,h4,h5,h6{
    font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
 }
 
+.section{
+   /* background: rgba(106,91,86, 0.5); */
+   margin: 0;
+}
+
+#about{
+   /* background: rgba(106,91,86, 0.5); */
+   margin: 0;
+}
+
+#portfolio{
+   background:url(/images/wood.jpg);
+   margin: 0;
+   padding-bottom: 60px;
+   /* height: 700px !important; */
+   background-repeat: no-repeat;
+   background-position: 0px -350px;
+   /* background-position: relative; */
+   position: relative;
+   width: 100vw !important;
+}
+
 #about-us-header {
-   margin-bottom: 100px;
+   margin-bottom: 0px;
+   margin-top: 50px;
+   padding-bottom: 20px;
+   height: 80px;
 }
 
 .page-section{
@@ -79,6 +104,7 @@ h1,h2,h3,h4,h5,h6{
 
 #top-books-header {
    margin-top: 75px;
+   color: white;
 }
 
 #sign-up-header {
@@ -692,8 +718,13 @@ section {
    height: 80px;
 }
 
+#signup {
+   padding-top: 100px;
+}
+
 #signUpForm {
    height: 450px;
+   position: relative
 }
 
 #signUpButton {
@@ -702,10 +733,13 @@ section {
 }
 
 section#signup{
-   background-color:#212529;
-   background-image:url(../images/map-image.png);
+   /* background-color:#212529; */
+   /* background-image:url(https://thumbs.dreamstime.com/z/imge-mint-green-leaves-texture-background-80172775.jpg); */
+   background-image:url('/images/bg2.jpg');
+
    background-repeat:no-repeat;
    background-position:center;
+
 }
 
 section#signup .section-heading{
@@ -920,6 +954,17 @@ ul.social-buttons li a:active,ul.social-buttons li a:focus,ul.social-buttons li 
 
 
 
-
-
-
+.bookicon {
+   color: #614B3C;
+}
+/* 
+.circle-icon {
+   background:  #D2D1CF;
+   width: 130px;
+   height: 130px;
+   border-radius: 50%;
+   text-align: center;
+   line-height: 100px;
+   vertical-align: middle;
+   padding: 30px;
+} */
