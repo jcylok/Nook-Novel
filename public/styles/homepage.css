@@ -83,11 +83,12 @@ h1,h2,h3,h4,h5,h6{
    background-size: cover;
    margin: 0;
    padding-bottom: 60px;
-   height: 800px !important;
+   min-height: 800px !important;
+   max-height: 1000px !important;
    background-repeat: no-repeat;
-   background-position: 0px -350px;
+   background-position: 0px -130px;
    /* background-position: relative; */
-   position: relative;
+   /* position: relative; */
    /* width: 100vw !important; */
 }
 
@@ -106,7 +107,7 @@ h1,h2,h3,h4,h5,h6{
 
 #top-books-header {
    margin-top: 75px;
-   margin-bottom: 50px;
+   margin-bottom: 3px;
    color: white;
 }
 
@@ -332,7 +333,7 @@ header.masthead .intro-text .intro-heading{
 }
 
 #portfolio {
-   height: 600px;
+   height: 1000px;
    /* background-image: url(../images/books.jpg) */
 }
 
