@@ -1,0 +1,377 @@
+* {
+box-sizing: border-box;
+font-family: 'Montserrat';
+}
+
+body {
+  background: url(../images/bg.jpg) no-repeat center center fixed;
+}
+
+.container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* background-color: white; */
+  margin: 0 auto;
+  /* transform: translate(80px,0) */
+}
+
+/* ----- SEARCH BAR ---- */
+.search-bar {  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ----- BOOK ---- */
+
+.book-gallery {
+  width: 75vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.book {
+  margin: 50px 16px;
+  width: 325px;
+  height: 175px;
+  display: flex;
+  background-color: #D3CFCC;
+  border: 10px solid #D3CFCC;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+img.book-img {
+  width: 150px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+  transform: translate(0, -32px);
+  animation: zoom-in 0.5s;
+}
+
+img.book-img:hover {
+  transform: scale(1.075);
+}
+
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  width: 155px;
+  height: 155px;
+}
+
+.book-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 15px;
+  max-height: 75px;
+  overflow: scroll;
+}
+
+.book-author {
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+
+
+/* -------------- ICONS --------------- */
+.icons {
+  margin-top: auto;
+  align-self: flex-end;
+  text-decoration: none;
+  margin: 0, 50px;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.4s;
+  font-size: 20px;
+}
+
+.icon:nth-child(2) {
+  transform: translate(-2.5px, -1px);
+}
+
+.icon:hover {
+  text-decoration: none;
+}
+
+.icon:nth-child(1):hover {
+  color: #3498DB;
+}
+
+.icon:nth-child(2):hover {
+  color: gold;
+}
+
+.icon:nth-child(3):hover {
+  color: green;
+}
+
+/* ------------------------------popup----------------------- */
+
+/* The Modal (background) */
+.modal {
+  display: block;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #D3EEF2;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 66%; /* Could be more or less, depending on screen size */
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+}
+
+/* The Close Button */
+.close {
+  color: #888;
+  float: right;
+  flex: end;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: right;
+  height: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-book-img {
+  width: 100px;
+  height: 150px;
+}
+
+.book-info {
+  /* display: inline-block; */
+  /* width: 700px;
+  height: 1000px; */
+}
+
+header {
+  width: 100%;
+  height: 20vh;
+  /* background: url(https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Beautiful-Full-HD-Wallpaper-Download-Free-PIC-WPE0010098.jpg) no-repeat 50% 50%; */
+  background-size: cover;
+}
+
+.logo {
+  line-height: 60px;
+  position: fixed;
+  float: left;
+  margin: 16px 46px;
+  /* color: #fff; */
+  color: goldenrod;
+  font-family:'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  line-height: 60px;
+  z-index: 9999;
+
+}
+
+nav ul {
+  line-height: 60px;
+  list-style: none;
+  background: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  color: #fff;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+  padding-right: 40px;
+  transition: 1s;
+}
+
+nav.black ul {
+  background:#212529;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 16px 40px;;
+}
+
+nav ul li a {
+  /* text-decoration: none;
+  color: #fff;
+  font-size: 16px; */
+  font-size:100%;
+  font-weight:400;
+  text-transform: uppercase;
+  padding:.75em 0;
+  letter-spacing:1px;
+  color:#fff;
+  font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  
+}
+
+nav ul li a:hover { 
+  color: #fed136;
+  text-decoration: none;
+} /* CSS link hover (green) */
+
+
+.menu-icon {
+  line-height: 60px;
+  width: 100%;
+  background: #000;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 15px 24px;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+}
+
+@media(max-width: 786px) {
+
+  .logo {
+        position: fixed;
+        top: 0;
+        margin-top: 16px;
+  }
+
+  nav ul {
+        max-height: 0px;
+        background: #000;
+  }
+
+  nav.black ul {
+        background: #000;
+  }
+
+  .showing {
+        max-height: 34em;
+  }
+
+  nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+  }
+
+  .menu-icon {
+        display: block;
+  }
+
+}
+
+.modal-content {
+  background: #D3CFCC;
+  opacity: 1;
+  height: 66vh;
+}
+
+/* #myModal img{
+  transform: translate(30px,100px)
+} */
+
+#myModal .book-info {
+  transform: translate(50px,100px);
+  width: 500px;
+}
+
+form {
+  display: block;
+  margin: auto;
+}
+
+h1 {
+  background: rgba(140,117,106, 0.2);
+  position: relative;
+  font-size: 35px;
+  font-family: 'Gochi Hand', cursive;
+}
+
+.center-this {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.book-input {
+  width: 400px;
+}
+
+.book-title-modal {
+  font-size: 32px;
+  font-weight: 800;
+  transform: translateY(-100px);
+}
+
+.book-author-modal {
+  font-size: 18px;
+  font-weight: 800;
+  transform: translateY(-90px);
+}
+
+.book-genre-modal {
+  font-style: italic;
+  transform: translateY(-80px);
+}
+
+.book-description-modal {
+  font-size: 12px;
+  min-height: 225px;
+  width: 550px;
+  overflow: scroll;
+  transform: translateY(-60px);
+}
+
+.book-image-modal {
+  min-width: 200px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  /* align-content: center; */
+}
+
+.modal-image {
+  /* transform: translateY(-100px); */
+  background-size: cover;
+  width: 200px;
+  align-self: center;
+}

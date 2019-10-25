@@ -1,0 +1,551 @@
+body {
+  background: grey;
+  background: url(../images/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+* {
+  font-family: "Montserrat";
+}
+
+.library {
+  clear: right;
+  display: block;
+  margin-bottom: 25px;
+  margin: 0 auto;
+}
+
+.text-muted {
+  font-size: 20px;
+  color: white;
+}
+/* .pos-f-t {
+  padding: 0;
+} */
+
+.section-header{
+  display: inline-block;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+  font-weight: 800;
+  color: white;
+}
+
+.map {
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+#carouselExampleIndicators {
+  min-height: 600px;
+  max-height: 600px;
+}
+
+.center-it {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.opacity {
+  background: rgba(140,117,106, 0.6);
+  z-index: 20;
+  min-height: 100vh;
+}
+
+
+header {
+  width: 100%;
+  height: 15vh;
+  /* background: url(https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Beautiful-Full-HD-Wallpaper-Download-Free-PIC-WPE0010098.jpg) no-repeat 50% 50%; */
+  background-size: cover;
+}
+
+.logo {
+  line-height: 30px;
+  position: fixed;
+  float: left;
+  margin: 16px 46px;
+  /* color: #fff; */
+  color: goldenrod;
+  font-family:'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  font-weight: bold;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  line-height: 60px;
+  z-index: 9999;
+
+}
+
+nav ul {
+  line-height: 30px;
+  list-style: none;
+  background: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  color: #fff;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+  padding-right: 40px;
+  transition: 1s;
+}
+
+nav.black ul {
+  background:#212529;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 16px 40px;;
+}
+
+nav ul li a {
+  /* text-decoration: none;
+  color: #fff;
+  font-size: 16px; */
+  font-size:100%;
+  font-weight:400;
+  text-transform: uppercase;
+  padding:.75em 0;
+  letter-spacing:1px;
+  color:#fff;
+  font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+  
+}
+
+nav ul li a:hover { 
+  color: #fed136;
+  text-decoration: none;
+} /* CSS link hover (green) */
+
+
+.menu-icon {
+  line-height: 60px;
+  width: 100%;
+  background: #000;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 15px 24px;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+}
+
+.intro-heading {
+  font-size: 48px;
+}
+
+@media(max-width: 786px) {
+
+  .logo {
+        position: fixed;
+        top: 0;
+        margin-top: 6px;
+  }
+
+  nav ul {
+        max-height: 0px;
+        background: #000;
+  }
+
+  nav.black ul {
+        background: #000;
+  }
+
+  .showing {
+        max-height: 34em;
+  }
+
+  nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+  }
+
+  .menu-icon {
+        display: block;
+  }
+
+}
+
+.welcome {
+  margin: 0px 50px 50px;
+  font-size: 64px;
+  color: white;
+}
+
+.buttons {
+  display: inline-block;
+  color: white;
+  opacity: 0.7;
+}
+
+.buttons:hover { 
+  color:#fed136;
+  text-decoration: none;
+} /* CSS link hover (green) */
+
+.center-con {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.round {
+  position: absolute;
+  border: 2px solid #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  
+}
+
+.buttons{
+  cursor: pointer; 
+}
+
+/* #cta .arrow{
+  left: 30%;
+}
+.arrow {
+  position: absolute;
+  bottom: 0; 
+  margin-left:0px;
+  width: 12px;
+  height: 12px;
+  background-size:
+  contain; top:10px;
+}
+
+.segunda{
+  margin-left: 8px;
+}
+.next {
+background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==);
+}
+.prev {
+background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==);
+}
+   */
+
+@keyframes bounceAlpha {
+0% {opacity: 1; transform: translateX(0px) scale(1);}
+25%{opacity: 0; transform:translateX(10px) scale(0.9);}
+26%{opacity: 0; transform:translateX(-10px) scale(0.9);}
+55% {opacity: 1; transform: translateX(0px) scale(1);}
+}
+
+.bounceAlpha {
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.arrow.primera.bounceAlpha {
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-delay:0.2s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.round:hover .arrow{
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+.round:hover .arrow.primera{
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-delay:0.2s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+h4 {
+  /* color: rgba(109,77,61, 1); */
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  margin-top: 10px;
+}
+.welcome p {
+  
+  color: rgba(222,226,236, 1);
+}
+
+#next {
+  opacity: 0.5;
+}
+
+#prev {
+  opacity: 0.5;
+}
+
+.leftArrow {
+  -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+
+@media(max-width: 786px) {
+  h1 {
+    font-size: 25px;
+  }
+  #next {
+    transform: translate(0, 3px);
+
+  }
+  
+  /* #prev {
+    transform: translate(0, 3px);
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+
+  } */
+
+}
+
+section {
+  padding: 20px;
+}
+
+.form-control-borderless {
+  border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+#searchcafe {
+  padding: 0;
+}
+
+.booksWantToRead {
+  margin-top: 125px;
+  overflow: hidden;
+}
+
+.find-coffee {
+  margin-top: 50px;
+}
+
+#map {
+  margin: 0 auto;
+  border-radius: 8%;
+  height: 500px;
+  width: 1000px;
+}
+
+#test {
+  padding: 0px;
+  margin: 0px;
+}
+
+.recommendedBooks {
+  /* margin-top: 200px; */
+  height: 500px;
+}
+
+/* .books {
+  margin-top: 200px;
+} */
+
+#carousel {
+  position: relative;
+  height: 500px;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  margin-top: 30px;
+}
+#carousel div {
+  position: absolute;
+  transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+  opacity: 1;
+}
+#carousel div img {
+  width: 400px;
+  transition: width 1s;
+}
+#carousel div.hideLeft {
+  left: 0%;
+  opacity: 0;
+  transform: translateY(50%) translateX(-50%);
+}
+#carousel div.hideLeft img {
+  width: 200px;
+}
+#carousel div.hideRight {
+  left: 100%;
+  opacity: 0;
+  transform: translateY(50%) translateX(-50%);
+}
+#carousel div.hideRight img {
+  width: 200px;
+}
+#carousel div.prev {
+  z-index: 5;
+  left: 30%;
+  transform: translateY(50px) translateX(-50%);
+}
+#carousel div.prev img {
+  width: 300px;
+}
+#carousel div.prevLeftSecond {
+  z-index: 4;
+  left: 15%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: 0.7;
+}
+#carousel div.prevLeftSecond img {
+  width: 200px;
+}
+#carousel div.selected {
+  z-index: 10;
+  left: 50%;
+  transform: translateY(0px) translateX(-50%);
+}
+#carousel div.next {
+  z-index: 5;
+  left: 70%;
+  transform: translateY(50px) translateX(-50%);
+}
+#carousel div.next img {
+  width: 300px;
+}
+#carousel div.nextRightSecond {
+  z-index: 4;
+  left: 85%;
+  transform: translateY(50%) translateX(-50%);
+  opacity: 0.7;
+}
+#carousel div.nextRightSecond img {
+  width: 200px;
+}
+
+
+.carousel-inner img  {
+  width: 50px;
+  margin: auto;
+}
+
+.carousel-item .active {
+  margin-right: 0;
+
+}
+
+
+.footer{
+  padding:25px 0;
+ text-align:center
+}
+
+.footer span.copyright{
+  font-size:90%;
+ line-height:40px;
+ text-transform:none;
+ font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
+}
+
+.footer ul.quicklinks{
+  font-size:90%;
+ line-height:40px;
+ margin-bottom:0;
+ text-transform:none;
+ font-family:Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
+}
+
+ul.social-buttons{
+  margin-bottom:0
+}
+
+ul.social-buttons li a{
+  font-size:20px;
+  line-height:50px;
+  display:block;
+  width:50px;
+  height:50px;
+  transition:all .3s;
+  color:#fff;
+  border-radius:100%;
+  outline:0;
+  /* background-color:#212529 */
+  background-color: #fed136;
+}
+
+ul.social-buttons li a:active,ul.social-buttons li a:focus,ul.social-buttons li a:hover{
+  background-color:#fed136
+}
+
+.blog .carousel-indicators {
+	left: 0;
+	top: auto;
+    bottom: -40px;
+
+}
+
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.blog .carousel-indicators .active {
+background: #707070;
+}
+
+.getinfo {
+  width: 150px;
+  border-radius: 10px;
+}
+
+.first-saved  {
+  width: 100px;
+  height: auto;
+}
+
+.second-saved {
+  width: 100px;
+  height: auto;
+}
+
+.third-saved {
+  width: 100px;
+  height: auto;
+}
+
+.w-50 {
+  width: 400px !important;
+  height: auto;
+}
