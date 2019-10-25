@@ -777,7 +777,9 @@ ul.social-buttons li a:active,ul.social-buttons li a:focus,ul.social-buttons li 
 
 
 
-
+#team {
+   margin: auto !important;
+}
 
 
 
